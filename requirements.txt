@@ -1,0 +1,6 @@
+pycsou >= 1.0.6
+numpy >= 1.10
+pandas >= 1.2.0
+matplotlib >= 3.3.*
+sphinx == 2.1.*
+tqdm >= 4.61.*
