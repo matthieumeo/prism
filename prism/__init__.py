@@ -962,32 +962,6 @@ def ch4_mlo_dataset():
     data = data.loc[data.time_decimal < 2016]
     return data, data_test
 
-
-def ch4_mlo_dataset():
-    data = pd.read_csv(
-        "https://raw.githubusercontent.com/matthieumeo/prism/main/data/ch4_mlo.txt",
-        sep=" ",
-        index_col=None,
-        skiprows=138,
-        na_values={
-            "value": -999.99,
-            "value_std_dev": -99.99,
-            "time_decimal": -999.99,
-            "nvalue": -9,
-        },
-    )
-    data = data.dropna(axis=0)
-    data_recast = data.loc[(data.time_decimal <= 2005.5)
-                           & (data.time_decimal >= 2000)]
-    data_forecast = data.loc[data.time_decimal >= 2016]
-    data_backcast = data.loc[data.time_decimal <= 1990]
-    data_test = pd.concat([data_backcast, data_recast, data_forecast], ignore_index=True)
-    data = data.loc[(data.time_decimal > 2005.5) | (data.time_decimal <= 2000)]
-    data = data.loc[data.time_decimal > 1990]
-    data = data.loc[data.time_decimal < 2016]
-    return data, data_test
-
-
 def co2_mlo_dataset():
     data = pd.read_csv(
         "https://raw.githubusercontent.com/matthieumeo/prism/main/data/co2_mlo.txt",
@@ -1005,10 +979,10 @@ def co2_mlo_dataset():
     data_recast = data.loc[(data.time_decimal <= 2005.5)
                            & (data.time_decimal >= 2000)]
     data_forecast = data.loc[data.time_decimal >= 2016]
-    data_backcast = data.loc[data.time_decimal <= 1981]
+    data_backcast = data.loc[data.time_decimal <= 1978]
     data_test = pd.concat([data_backcast, data_recast, data_forecast], ignore_index=True)
     data = data.loc[(data.time_decimal > 2005.5) | (data.time_decimal <= 2000)]
-    data = data.loc[data.time_decimal > 1981]
+    data = data.loc[data.time_decimal > 1978]
     data = data.loc[data.time_decimal < 2016]
     return data, data_test
 

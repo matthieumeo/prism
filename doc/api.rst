@@ -1,5 +1,5 @@
-Prism's API
-===========
+Reference Documentation
+=======================
 
 The seasonal-trend regression is performed by means of the ``SeasonalTrendRegression`` class described below: 
 

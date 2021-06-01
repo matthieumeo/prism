@@ -21,8 +21,8 @@ US Electronic Equipment
 
     streg = SeasonalTrendRegression(sample_times=sample_times, sample_values=sample_values, period=period,
                                     forecast_times=forecast_times, seasonal_forecast_times=seasonal_forecast_times,
-                                    nb_of_knots=(32, 32), spline_orders=(3, 2), penalty_strength=1, penalty_tuning=True,
-                                    test_times=None, test_values=None, robust=True, theta=0.5)
+                                    nb_of_knots=(32, 40), spline_orders=(3, 2), penalty_strength=1, penalty_tuning=True,
+                                    test_times=None, test_values=None, robust=False, theta=0.5)
     streg.plot_data()
     xx, mu = streg.fit(verbose=1)
     min_values, max_values, samples = streg.sample_credible_region(return_samples=True)

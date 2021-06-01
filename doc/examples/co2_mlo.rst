@@ -23,7 +23,7 @@ Atmospheric CO2
 
     streg = SeasonalTrendRegression(sample_times=sample_times, sample_values=sample_values, period=period,
                                     forecast_times=forecast_times, seasonal_forecast_times=seasonal_forecast_times,
-                                    nb_of_knots=(32, 32), spline_orders=(3, 2), penalty_strength=1, penalty_tuning=True,
+                                    nb_of_knots=(32, 16), spline_orders=(3, 2), penalty_strength=1, penalty_tuning=True,
                                     test_times=test_times, test_values=test_values, robust=False, theta=0.5)
     streg.plot_data()
     xx, mu = streg.fit(verbose=1)
