@@ -2,6 +2,6 @@ numpy >= 1.10
 pandas >= 1.2.0
 matplotlib >= 3.3.*
 pycsou >= 1.0.6
-git+git://github.com/matthieumeo/periodispline#egg=periodispline
+periodispline @ git+git://github.com/matthieumeo/periodispline.git@c423c48e48e3d4643ebb330470506559ff8932ed
 sphinx == 2.1.*
 tqdm >= 4.61.*
