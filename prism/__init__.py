@@ -12,14 +12,57 @@ import matplotlib.pyplot as plt
 from tqdm.auto import tqdm
 import pandas as pd
 
-__all__ = ['SeasonalTrendRegression', 'ch4_mlo_dataset']
+__all__ = ['SeasonalTrendRegression', 'ch4_mlo_dataset', 'co2_mlo_dataset', 'elec_equip_dataset']
 
 
 class SeasonalTrendRegression:
     r"""
     Seasonal-trend regression of a noisy and non-uniform time series.
 
+    Parameters
+    ----------
+    sample_times: numpy.ndarray
+        Sample times :math:`\{t_1, \ldots, t_L\}\in\mathbb{R}`.
+    sample_values: numpy.ndarray
+        Observed values of the signal :math:`\{y_1, \ldots, y_L\}\in\mathbb{R}` at the sample times. Can be noisy.
+    period: Number
+        Period :math:`T>0` for the seasonal component.
+    forecast_times: numpy.ndarray
+        Unobserved times for forecasting of the signal and its trend component.
+    seasonal_forecast_times: numpy.ndarray
+        Unobserved times in :math:`[0,T)` for forecasting of the seasonal component.
+    nb_of_knots: Tuple[int, int]
+        Number of knots :math:`(N, M)` for the seasonal and trend component respectively. High values of N and M can lead
+        to numerical instability.
+    spline_orders: Tuple[int, int]
+        Exponents :math:`(k,j)` of the iterated derivative operators defining the splines involved in the seasonal
+        and trend component respectively. Both parameters must be strictly bigger than one.
+    penalty_strength: Optional[Number]
+        Value of the penalty strength :math:`\lambda\in \mathbb{R}_+`.
+    penalty_tuning: bool
+        Whether or not the penalty strength :math:`\lambda` should be learnt from the data.
+    test_times: Optional[numpy.ndarray]
+        Optional test times to assess the regression performances.
+    test_values: Optional[numpy.ndarray]
+        Optional test values to assess the regression performances.
+    robust: bool
+        If ``True``, :math:`p=1` is chosen for the data-fidelity term in (2), otherwise :math:`p=2`. Should be set to
+        ``True`` in the presence of outliers.
+    theta: float
+        Value of the balancing parameter :math:`\theta\in [0,1]`. Setting ``theta`` as 0 or 1 respectively removes the penalty on the seasonal
+        or trend component in (2).
+    dtype: type
+        Types of the various numpy arrays involved in the estimation procedure.
+    tol: float
+        Tolerance for computing Lipschitz constants. For experimented users only!
 
+    Raises
+    ------
+    ValueError
+        If ``self.sample_times.size != self.sample_values.size``, ``len(self.spline_orders) != 2``, ``1 in self.spline_orders``,
+        ``len(self.nb_of_knots) != 2``  or ``not 0 <= theta <= 1``.
+    """
+    r"""
     **Parametric Model**
 
     Consider an unknown signal :math:`f:\mathbb{R}\to \mathbb{R}` of which we possess *noisy* samples
@@ -97,7 +140,7 @@ class SeasonalTrendRegression:
 
     Note that (3) can also be used for hypothesis testing on the parameters of the model (see method :py:meth:`~prism.__init__.SeasonalTrendRegression.is_credible`
     for more on the topic).
-
+    
     Examples
     --------
 
@@ -128,9 +171,13 @@ class SeasonalTrendRegression:
         streg.plot_data()
         xx, mu = streg.fit(verbose=1)
         r2score = streg.r2score()
-        min_values, max_values, samples = streg.sample_credible_region(return_samples=True)
+        min_values, max_values, samples = streg.sample_credible_region(return_samples=True, subsample_by=1000)
         streg.summary_plot(min_values=min_values, max_values=max_values)
-
+        streg.plot_seasonal_component(min_values=min_values['seasonal'], max_values=max_values['seasonal'],
+                              samples_seasonal=samples['seasonal'])
+        streg.plot_trend_component(min_values=min_values['trend'], max_values=max_values['trend'],
+                                   samples_trend=samples['trend'])
+        streg.plot_sum(min_values=min_values['sum'], max_values=max_values['sum'], samples_sum=samples['sum'])
     """
 
     def __init__(self,
@@ -141,7 +188,7 @@ class SeasonalTrendRegression:
                  seasonal_forecast_times: np.ndarray,
                  nb_of_knots: Tuple[int, int] = (32, 32),
                  spline_orders: Tuple[int, int] = (3, 2),
-                 penalty_strength: Optional[Number] = None,
+                 penalty_strength: Optional[float] = None,
                  penalty_tuning: bool = True,
                  test_times: Optional[np.ndarray] = None,
                  test_values: Optional[np.ndarray] = None,
@@ -149,6 +196,51 @@ class SeasonalTrendRegression:
                  theta: float = 0.5,
                  dtype: type = np.float64,
                  tol: float = 1e-3):
+        r"""
+
+        Parameters
+        ----------
+        sample_times: numpy.ndarray
+            Sample times :math:`\{t_1, \ldots, t_L\}\in\mathbb{R}`.
+        sample_values: numpy.ndarray
+            Observed values of the signal :math:`\{y_1, \ldots, y_L\}\in\mathbb{R}` at the sample times. Can be noisy.
+        period: Number
+            Period :math:`T>0` for the seasonal component.
+        forecast_times: numpy.ndarray
+            Unobserved times for forecasting of the signal and its trend component.
+        seasonal_forecast_times: numpy.ndarray
+            Unobserved times in :math:`[0,T)` for forecasting of the seasonal component.
+        nb_of_knots: Tuple[int, int]
+            Number of knots :math:`(N, M)` for the seasonal and trend component respectively. High values of N and M can lead
+            to numerical instability.
+        spline_orders: Tuple[int, int]
+            Exponents :math:`(k,j)` of the iterated derivative operators defining the splines involved in the seasonal
+            and trend component respectively. Both parameters must be strictly bigger than one.
+        penalty_strength: Optional[Number]
+            Value of the penalty strength :math:`\lambda\in \mathbb{R}_+`.
+        penalty_tuning: bool
+            Whether or not the penalty strength :math:`\lambda` should be learnt from the data.
+        test_times: Optional[numpy.ndarray]
+            Optional test times to assess the regression performances.
+        test_values: Optional[numpy.ndarray]
+            Optional test values to assess the regression performances.
+        robust: bool
+            If ``True``, :math:`p=1` is chosen for the data-fidelity term in (2), otherwise :math:`p=2`. Should be set to
+            ``True`` in the presence of outliers.
+        theta: float
+            Value of the balancing parameter :math:`\theta\in [0,1]`. Setting ``theta`` as 0 or 1 respectively removes the penalty on the seasonal
+            or trend component in (2).
+        dtype: type
+            Types of the various numpy arrays involved in the estimation procedure.
+        tol: float
+            Tolerance for computing Lipschitz constants. For experimented users only!
+
+        Raises
+        ------
+        ValueError
+            If ``self.sample_times.size != self.sample_values.size``, ``len(self.spline_orders) != 2``, ``1 in self.spline_orders``,
+            ``len(self.nb_of_knots) != 2``  or ``not 0 <= theta <= 1``.
+        """
 
         self.sample_times = np.asarray(sample_times).astype(dtype)
         self.sample_values = np.asarray(sample_values).astype(dtype)
@@ -277,6 +369,29 @@ class SeasonalTrendRegression:
 
     def fit(self, max_outer_iterations: int = 10, max_inner_iterations: int = 10000, accuracy_parameter: float = 1e-5,
             accuracy_hyperparameter: float = 1e-3, verbose: Optional[int] = None) -> Tuple[np.ndarray, float]:
+        r"""
+        Fit the model (1) by solving (2).
+
+        Parameters
+        ----------
+        max_outer_iterations: int
+            Maximum number of outer iterations for auto-tuning of the penalty strength :math:`\lambda`.
+        max_inner_iterations: int
+            Maximum number of inner iterations when solving (2) with a fixed value of :math:`\lambda`.
+        accuracy_parameter: float
+            Minimum relative improvement in the iterate of the numerical solver for (2).
+        accuracy_hyperparameter: float
+            Minimum relative improvement of the penalty strength.
+        verbose: Optional[int]
+            Verbosity level of the method.
+
+        Returns
+        -------
+        Tuple[np.ndarray, float]
+            Estimates of :math:`(\hat{\mathbf{a}}, \hat{\mathbf{b}}, \hat{\mathbf{c}})` concatenated as a single array with
+            size :math:`N+M+2` and the auto-tuned penalty parameter :math:`\lambda`.
+        """
+
         x, z = None, None
         mu = 1 if self.penalty_strength is None else self.penalty_strength
         print(f'Initial penalty: {mu}')
@@ -314,6 +429,20 @@ class SeasonalTrendRegression:
         return x, mu
 
     def r2score(self, dataset: str = 'training') -> dict:
+        r"""
+        :math:`R^2-score` of the regression.
+
+        Parameters
+        ----------
+        dataset: ['training', 'test']
+            Dataset on which to evaluate the :math:`R^2-score`.
+
+        Returns
+        -------
+        dict
+            Dictionary containing the :math:`R^2-scores` of the seasonal and trend components as well as the sum of the two.
+
+        """
         if dataset == 'training':
             total_sum_of_squares = np.sum((self.y - self.y.mean()) ** 2)
             residuals_seasonal = self.y - self.fitted_values['trend']
@@ -355,6 +484,15 @@ class SeasonalTrendRegression:
         return out['primal_variable'], out['dual_variable'], message
 
     def predict(self) -> Tuple[np.ndarray, np.ndarray, np.ndarray]:
+        r"""
+        Predict the values of the signal and its seasonal/trend components at times specified by the attributes ``self.forecast_times`` and
+        ``self.seasonal_forecast_times``.
+
+        Returns
+        -------
+        Tuple[np.ndarray, np.ndarray, np.ndarray]
+            Predicted values for the seasonal, trend and sum of the two respectively.
+        """
         seasonal_component = self.synthesis_ops['seasonal'] * self.coeffs_seasonal
         trend_component = self.synthesis_ops['trend_spline'] * self.coeffs_trend_spline + self.synthesis_ops[
             'trend_nullspace'] * self.coeffs_trend_nullspace
@@ -363,6 +501,29 @@ class SeasonalTrendRegression:
 
     def sample_credible_region(self, n_samples: float = 1e5, credible_lvl: float = 0.01, return_samples: bool = False,
                                seed: int = 1, subsample_by: int = 100) -> Tuple[dict, dict, Optional[dict]]:
+        r"""
+        Sample approximate credible region and returns pointwise marginal credible intervals.
+
+        Parameters
+        ----------
+        n_samples: float
+            Number of samples.
+        credible_lvl: float
+            Credible level :math:`\xi\in [0,1]`.
+        return_samples: bool
+            If ``True``, return the samples on top of the pointwise marginal credible intervals.
+        seed: int
+            Seed for the pseudo-random number generator.
+        subsample_by:
+            Subsampling factor (1 every ``subsample_by`` samples are stored if ``return_samples==True``).
+
+        Returns
+        -------
+        Tuple[dict, dict, Optional[dict]]
+            Dictionaries with keys {'coeffs', 'seasonal', 'trend', 'sum'}. The values associated to the keys of the first two dictionaries
+            are the minimum and maximum of the credible intervals of the corresponding component. The values associated to the keys of the
+            last dictionary are arrays containing credible samples of the corresponding component.
+        """
         gamma = self.J(self.coeffs) + self.coeffs.size * (
                 np.sqrt(16 * np.log(3 / credible_lvl) / self.coeffs.size) + 1)
         orthogonal_basis = self._zero_sum_hyperplane_basis()
@@ -431,6 +592,23 @@ class SeasonalTrendRegression:
 
     def is_credible(self, coeffs: np.ndarray, credible_lvl: Optional[float] = None, gamma: Optional[float] = None) -> \
             Tuple[bool, bool, float]:
+        r"""
+        Test whether a set of coefficients are credible for a given confidence level.
+
+        Parameters
+        ----------
+        coeffs: np.ndarray
+            Coefficients to be tested (array of size (N+M+2)).
+        credible_lvl: Optional[float]
+            Credible level :math:`\xi\in[0,1]`.
+        gamma: Optional[float]
+            Undocumented. For internal use only.
+        Returns
+        -------
+        Tuple[bool, bool, float]
+            The set of coefficients are credible if the product of the first two output is 1. The last output is for internal use only.
+
+        """
         if gamma is None:
             gamma = self.J(self.coeffs) + self.coeffs.size * (
                     np.sqrt(16 * np.log(3 / credible_lvl) / self.coeffs.size) + 1)
@@ -463,6 +641,16 @@ class SeasonalTrendRegression:
         return theta_min, theta_max
 
     def plot_data(self, fig: Optional[int] = None, test_set: bool = True):
+        r"""
+        Plot the training and test datasets.
+
+        Parameters
+        ----------
+        fig: Optional[int]
+            Figure handle. If ``None`` creates a new figure.
+        test_set:
+            Optional test dataset.
+        """
         f = plt.figure(fig)
         sc1 = plt.scatter(self.sample_times, self.sample_values)
         if test_set:
@@ -473,6 +661,16 @@ class SeasonalTrendRegression:
         return f, sc1, sc2
 
     def plot_green_functions(self, fig: Optional[int] = None, component: str = 'trend'):
+        r"""
+        Plot the shifted Green functions involved in the parametric model (1).
+
+        Parameters
+        ----------
+        fig: Optional[int]
+            Figure handle. If ``None`` creates a new figure.
+        component: ['seasonal', 'trend']
+            Component for which the shifted Green functions should be plotted.
+        """
         f = plt.figure(fig)
         if component == 'seasonal':
             plt.plot(self.seasonal_forecast_times, self.synthesis_ops['seasonal'].mat)
@@ -483,117 +681,238 @@ class SeasonalTrendRegression:
 
     def summary_plot(self, fig: Optional[int] = None, min_values: Optional[dict] = None,
                      max_values: Optional[dict] = None):
+        r"""
+        Plot the result of the regression.
+
+        Parameters
+        ----------
+        fig: Optional[int]
+            Figure handle. If ``None`` creates a new figure.
+        min_values: Optional[dict]
+            Minimum of the pointwise marginal credible intervals for the various components.
+            Output of :py:meth:`~prism.__init__.SeasonalTrendRegression.sample_credible_region`.
+        max_values: Optional[dict]
+            Maximum of the pointwise marginal credible intervals for the various components.
+            Output of :py:meth:`~prism.__init__.SeasonalTrendRegression.sample_credible_region`.
+        """
         colors = plt.rcParams['axes.prop_cycle'].by_key()['color']
         seasonal_component, trend_component, seasonal_plus_trend = self.predict()
         fig = plt.figure(fig, constrained_layout=True)
         gs = fig.add_gridspec(5, 2)
         plt.subplot(gs[:2, 0])
+        legend_handles = []
+        legend_labels = []
         sc1 = plt.scatter(self.t_mod, self.residuals['seasonal'], c=colors[1], s=8, zorder=4, alpha=0.2)
-        sc2 = plt.scatter(self.test_times_mod,
-                          self.test_values - self.test_ops['trend_spline'] * self.coeffs_trend_spline - self.test_ops[
-                              'trend_nullspace'] * self.coeffs_trend_nullspace,
-                          marker='s', c=colors[2], s=8, zorder=4, alpha=0.2)
+        legend_handles.append(sc1)
+        legend_labels.append('Training samples')
+        if self.test_values is not None:
+            sc2 = plt.scatter(self.test_times_mod,
+                              self.test_values - self.test_ops['trend_spline'] * self.coeffs_trend_spline - self.test_ops[
+                                  'trend_nullspace'] * self.coeffs_trend_nullspace,
+                              marker='s', c=colors[2], s=8, zorder=4, alpha=0.2)
+            legend_handles.append(sc2)
+            legend_labels.append('Test samples')
         plt2, = plt.plot(self.seasonal_forecast_times, seasonal_component, color=colors[0], linewidth=3, zorder=3)
+        legend_handles.append(plt2)
+        legend_labels.append('MAP')
         if min_values is not None:
             fil = plt.fill_between(self.seasonal_forecast_times, min_values['seasonal'], max_values['seasonal'],
                                    color=colors[0], alpha=0.3, zorder=1)
-            plt.legend([sc1, sc2, plt2, fil], ['Training samples', 'Test samples', 'MAP', 'Credible Intervals'])
-        else:
-            plt.legend([sc1, sc2, plt2], ['Training samples', 'Test samples', 'MAP'])
+            legend_handles.append(fil)
+            legend_labels.append('Credible Intervals')
+
+        plt.legend(legend_handles, legend_labels)
         plt.title('Seasonal Component')
 
         plt.subplot(gs[:2, 1])
+        legend_handles = []
+        legend_labels = []
         sc1 = plt.scatter(self.t, self.residuals['trend'], c=colors[1], s=8, zorder=4, alpha=0.2)
-        sc2 = plt.scatter(self.test_times, self.test_values - self.test_ops['seasonal'] * self.coeffs_seasonal,
-                          marker='s',
-                          c=colors[2],
-                          s=8, zorder=4, alpha=0.2)
+        legend_handles.append(sc1)
+        legend_labels.append('Training samples')
+        if self.test_times is not None:
+            sc2 = plt.scatter(self.test_times, self.test_values - self.test_ops['seasonal'] * self.coeffs_seasonal,
+                              marker='s',
+                              c=colors[2],
+                              s=8, zorder=4, alpha=0.2)
+            legend_handles.append(sc2)
+            legend_labels.append('Test samples')
         plt2, = plt.plot(self.forecast_times, trend_component, color=colors[0], linewidth=3, zorder=3)
+        legend_handles.append(plt2)
+        legend_labels.append('MAP')
         if min_values is not None:
             fil = plt.fill_between(self.forecast_times, min_values['trend'], max_values['trend'],
                                    color=colors[0], alpha=0.3, zorder=1)
-            plt.legend([sc1, sc2, plt2, fil], ['Training samples', 'Test samples', 'MAP', 'Credible Intervals'])
-        else:
-            plt.legend([sc1, sc2, plt2], ['Training samples', 'Test samples', 'MAP'])
+            legend_handles.append(fil)
+            legend_labels.append('Credible Intervals')
+        plt.legend(legend_handles, legend_labels)
         plt.title('Trend Component')
 
         plt.subplot(gs[2:4, :])
+        legend_handles = []
+        legend_labels = []
         sc1 = plt.scatter(self.t, self.y, c=colors[1], s=8, zorder=4, alpha=0.2)
-        sc2 = plt.scatter(self.test_times, self.test_values, marker='s', c=colors[2], s=8, zorder=4, alpha=0.2)
+        legend_handles.append(sc1)
+        legend_labels.append('Training samples')
+        if self.test_times is not None:
+            sc2 = plt.scatter(self.test_times, self.test_values, marker='s', c=colors[2], s=8, zorder=4, alpha=0.2)
+            legend_handles.append(sc2)
+            legend_labels.append('Test samples')
         plt2, = plt.plot(self.forecast_times, seasonal_plus_trend, color=colors[0], linewidth=2, zorder=3)
+        legend_handles.append(plt2)
+        legend_labels.append('MAP')
         if min_values is not None:
             fil = plt.fill_between(self.forecast_times, min_values['sum'], max_values['sum'],
                                    color=colors[0], alpha=0.3, zorder=1)
-            plt.legend([sc1, sc2, plt2, fil], ['Training samples', 'Test samples', 'MAP', 'Credible Intervals'])
-        else:
-            plt.legend([sc1, sc2, plt2], ['Training samples', 'Test samples', 'MAP'])
+            legend_handles.append(fil)
+            legend_labels.append('Credible Intervals')
+        plt.legend(legend_handles, legend_labels)
         plt.title('Seasonal + Trend')
 
         plt.subplot(gs[4:, :])
         plt.stem(self.sample_times, 100 * (self.residuals['sum']) / self.y, linefmt='C4-', markerfmt='C1o')
-        plt.stem(self.test_times, 100 * (self.test_values - self.test_ops['sum'] * self.coeffs) / self.test_values,
-                 linefmt='C4-', markerfmt='C2s')
+        if self.test_times is not None:
+            plt.stem(self.test_times, 100 * (self.test_values - self.test_ops['sum'] * self.coeffs) / self.test_values,
+                     linefmt='C4-', markerfmt='C2s')
         plt.title('Relative Prediction/Fitting Error')
         plt.ylabel('Percent')
         return fig
 
     def plot_seasonal_component(self, fig: Optional[int] = None, samples_seasonal: Optional[np.ndarray] = None,
                                 min_values: Optional[np.ndarray] = None, max_values: Optional[np.ndarray] = None):
+        r"""
+        Plot the seasonal component.
+
+        Parameters
+        ----------
+        fig: Optional[int]
+            Figure handle. If ``None`` creates a new figure.
+        samples_seasonal: Optional[np.ndarray] = None
+            Sample curves for the seasonal component.
+            Output of :py:meth:`~prism.__init__.SeasonalTrendRegression.sample_credible_region`.
+        min_values: Optional[np.ndarray]
+            Minimum of the pointwise marginal credible intervals for the seasonal component.
+            Output of :py:meth:`~prism.__init__.SeasonalTrendRegression.sample_credible_region`.
+        max_values: Optional[np.ndarray]
+            Maximum of the pointwise marginal credible intervals for the seasonal component.
+            Output of :py:meth:`~prism.__init__.SeasonalTrendRegression.sample_credible_region`.
+        """
         colors = plt.rcParams['axes.prop_cycle'].by_key()['color']
         seasonal_component, _, _ = self.predict()
         fig = plt.figure(fig)
+        legend_handles = []
+        legend_labels = []
         sc1 = plt.scatter(self.t_mod, self.residuals['seasonal'], c=colors[1], s=8, zorder=4, alpha=0.2)
-        sc2 = plt.scatter(self.test_times_mod,
-                          self.test_values - self.test_ops['trend_spline'] * self.coeffs_trend_spline - self.test_ops[
-                              'trend_nullspace'] * self.coeffs_trend_nullspace,
-                          marker='s', c=colors[2], s=8, zorder=4, alpha=0.2)
+        legend_handles.append(sc1)
+        legend_labels.append('Training samples')
+        if self.test_times is not None:
+            sc2 = plt.scatter(self.test_times_mod,
+                              self.test_values - self.test_ops['trend_spline'] * self.coeffs_trend_spline - self.test_ops[
+                                  'trend_nullspace'] * self.coeffs_trend_nullspace,
+                              marker='s', c=colors[2], s=8, zorder=4, alpha=0.2)
+            legend_handles.append(sc2)
+            legend_labels.append('Test samples')
         plt2, = plt.plot(self.seasonal_forecast_times, seasonal_component, color=colors[0], linewidth=3, zorder=3)
+        legend_handles.append(plt2)
+        legend_labels.append('MAP')
         if min_values is not None:
             plt.fill_between(self.seasonal_forecast_times, min_values, max_values, color=colors[0], alpha=0.3,
                              zorder=1)
         if samples_seasonal is not None:
             plt.plot(self.seasonal_forecast_times, samples_seasonal, color=colors[0], alpha=0.1, linewidth=0.5,
                      zorder=1)
-        plt.legend([sc1, sc2, plt2], ['Training samples', 'Test samples', 'MAP'])
+        plt.legend(legend_handles, legend_labels)
         plt.title('Seasonal Component')
         return fig
 
     def plot_trend_component(self, fig: Optional[int] = None, samples_trend: Optional[np.ndarray] = None,
                              min_values: Optional[np.ndarray] = None, max_values: Optional[np.ndarray] = None):
+        r"""
+        Plot the trend component.
+
+        Parameters
+        ----------
+        fig: Optional[int]
+            Figure handle. If ``None`` creates a new figure.
+        samples_trend: Optional[np.ndarray] = None
+            Sample curves for the trend component.
+            Output of :py:meth:`~prism.__init__.SeasonalTrendRegression.sample_credible_region`.
+        min_values: Optional[np.ndarray]
+            Minimum of the pointwise marginal credible intervals for the trend component.
+            Output of :py:meth:`~prism.__init__.SeasonalTrendRegression.sample_credible_region`.
+        max_values: Optional[np.ndarray]
+            Maximum of the pointwise marginal credible intervals for the trend component.
+            Output of :py:meth:`~prism.__init__.SeasonalTrendRegression.sample_credible_region`.
+        """
         colors = plt.rcParams['axes.prop_cycle'].by_key()['color']
         _, trend_component, _ = self.predict()
         fig = plt.figure(fig)
+        legend_handles = []
+        legend_labels = []
         sc1 = plt.scatter(self.t, self.residuals['trend'], c=colors[1], s=8, zorder=4, alpha=0.2)
-        sc2 = plt.scatter(self.test_times,
-                          self.test_values - self.test_ops['seasonal'] * self.coeffs_seasonal,
-                          marker='s', c=colors[2], s=8, zorder=4, alpha=0.2)
+        legend_handles.append(sc1)
+        legend_labels.append('Training samples')
+        if self.test_times is not None:
+            sc2 = plt.scatter(self.test_times,
+                              self.test_values - self.test_ops['seasonal'] * self.coeffs_seasonal,
+                              marker='s', c=colors[2], s=8, zorder=4, alpha=0.2)
+            legend_handles.append(sc2)
+            legend_labels.append('Test samples')
         plt2, = plt.plot(self.forecast_times, trend_component, color=colors[0], linewidth=3, zorder=3)
+        legend_handles.append(plt2)
+        legend_labels.append('MAP')
         if min_values is not None:
             plt.fill_between(self.forecast_times, min_values, max_values, color=colors[0], alpha=0.3,
                              zorder=1)
         if samples_trend is not None:
             plt.plot(self.forecast_times, samples_trend, color=colors[0], alpha=0.1, linewidth=0.5,
                      zorder=1)
-        plt.legend([sc1, sc2, plt2], ['Training samples', 'Test samples', 'MAP'])
+        plt.legend(legend_handles, legend_labels)
         plt.title('Trend Component')
         return fig
 
     def plot_sum(self, fig: Optional[int] = None, samples_sum: Optional[np.ndarray] = None,
                  min_values: Optional[np.ndarray] = None, max_values: Optional[np.ndarray] = None):
+        r"""
+        Plot the sum of the seasonal and trend component.
+
+        Parameters
+        ----------
+        fig: Optional[int]
+            Figure handle. If ``None`` creates a new figure.
+        samples_sum: Optional[np.ndarray] = None
+            Sample curves for the sum of the two component.
+            Output of :py:meth:`~prism.__init__.SeasonalTrendRegression.sample_credible_region`.
+        min_values: Optional[np.ndarray]
+            Minimum of the pointwise marginal credible intervals for the sum of the two components.
+            Output of :py:meth:`~prism.__init__.SeasonalTrendRegression.sample_credible_region`.
+        max_values: Optional[np.ndarray]
+            Maximum of the pointwise marginal credible intervals for the sum of the two components.
+            Output of :py:meth:`~prism.__init__.SeasonalTrendRegression.sample_credible_region`.
+        """
         colors = plt.rcParams['axes.prop_cycle'].by_key()['color']
         _, _, seasonal_and_trend = self.predict()
         fig = plt.figure(fig)
+        legend_handles = []
+        legend_labels = []
         sc1 = plt.scatter(self.t, self.y, c=colors[1], s=8, zorder=4, alpha=0.2)
-        sc2 = plt.scatter(self.test_times, self.test_values,
-                          marker='s', c=colors[2], s=8, zorder=4, alpha=0.2)
+        legend_handles.append(sc1)
+        legend_labels.append('Training samples')
+        if self.test_times is not None:
+            sc2 = plt.scatter(self.test_times, self.test_values,
+                              marker='s', c=colors[2], s=8, zorder=4, alpha=0.2)
+            legend_handles.append(sc2)
+            legend_labels.append('Test samples')
         plt2, = plt.plot(self.forecast_times, seasonal_and_trend, color=colors[0], linewidth=3, zorder=3)
+        legend_handles.append(plt2)
+        legend_labels.append('MAP')
         if min_values is not None:
             plt.fill_between(self.forecast_times, min_values, max_values, color=colors[0], alpha=0.3,
                              zorder=1)
         if samples_sum is not None:
             plt.plot(self.forecast_times, samples_sum, color=colors[0], alpha=0.1, linewidth=0.5,
                      zorder=1)
-        plt.legend([sc1, sc2, plt2], ['Training samples', 'Test samples', 'MAP'])
+        plt.legend(legend_handles, legend_labels)
         plt.title('Trend Component')
         return fig
 
@@ -618,9 +937,10 @@ def _rejection_sampling(theta_min: float, theta_max: float, rejection_rule: Call
     else:
         return theta_rnd
 
+
 def ch4_mlo_dataset():
     data = pd.read_csv(
-        "./prism/data/ch4_mlo.txt",
+        "https://raw.githubusercontent.com/matthieumeo/prism/main/data/ch4_mlo.txt",
         sep=" ",
         index_col=None,
         skiprows=138,
@@ -641,3 +961,62 @@ def ch4_mlo_dataset():
     data = data.loc[data.time_decimal > 1990]
     data = data.loc[data.time_decimal < 2016]
     return data, data_test
+
+
+def ch4_mlo_dataset():
+    data = pd.read_csv(
+        "https://raw.githubusercontent.com/matthieumeo/prism/main/data/ch4_mlo.txt",
+        sep=" ",
+        index_col=None,
+        skiprows=138,
+        na_values={
+            "value": -999.99,
+            "value_std_dev": -99.99,
+            "time_decimal": -999.99,
+            "nvalue": -9,
+        },
+    )
+    data = data.dropna(axis=0)
+    data_recast = data.loc[(data.time_decimal <= 2005.5)
+                           & (data.time_decimal >= 2000)]
+    data_forecast = data.loc[data.time_decimal >= 2016]
+    data_backcast = data.loc[data.time_decimal <= 1990]
+    data_test = pd.concat([data_backcast, data_recast, data_forecast], ignore_index=True)
+    data = data.loc[(data.time_decimal > 2005.5) | (data.time_decimal <= 2000)]
+    data = data.loc[data.time_decimal > 1990]
+    data = data.loc[data.time_decimal < 2016]
+    return data, data_test
+
+
+def co2_mlo_dataset():
+    data = pd.read_csv(
+        "https://raw.githubusercontent.com/matthieumeo/prism/main/data/co2_mlo.txt",
+        sep=" ",
+        index_col=None,
+        skiprows=151,
+        na_values={
+            "value": -999.99,
+            "value_std_dev": -99.99,
+            "time_decimal": -999.99,
+            "nvalue": -9,
+        },
+    )
+    data = data.dropna(axis=0)
+    data_recast = data.loc[(data.time_decimal <= 2005.5)
+                           & (data.time_decimal >= 2000)]
+    data_forecast = data.loc[data.time_decimal >= 2016]
+    data_backcast = data.loc[data.time_decimal <= 1981]
+    data_test = pd.concat([data_backcast, data_recast, data_forecast], ignore_index=True)
+    data = data.loc[(data.time_decimal > 2005.5) | (data.time_decimal <= 2000)]
+    data = data.loc[data.time_decimal > 1981]
+    data = data.loc[data.time_decimal < 2016]
+    return data, data_test
+
+
+def elec_equip_dataset():
+    from statsmodels.datasets import elec_equip as ds
+
+    data = ds.load(as_pandas=True).data
+    data['time_decimal'] = data.index.year + (data.index.dayofyear - 1 + data.index.hour / 24.) / 365.
+    data = data.rename(columns={'STS.M.I7.W.TOVT.NS0016.4.000': 'value'})
+    return data

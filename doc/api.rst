@@ -1,0 +1,6 @@
+Prism's API
+===========
+
+The seasonal-trend regression is performed by means of the ``SeasonalTrendRegression`` class described below: 
+
+.. automodule:: prism.__init__

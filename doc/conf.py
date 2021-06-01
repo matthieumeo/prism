@@ -69,11 +69,21 @@ add_module_names = False
 plot_include_source = True
 
 # -- Options for HTML output -------------------------------------------------
+html_static_path = ['_static']
 html_theme_path = [alabaster.get_path()]
 html_theme = "alabaster"
 html_theme_options = {
-     # Disable showing the sidebar. Defaults to 'false'
-     'nosidebar': True,
+    #'nosidebar': True, # Disable showing the sidebar. Defaults to 'false'
+    'description': 'Spline-based regression and decomposition of time series with seasonal and trend components.',
+    'github_banner': True,
+    'github_button': True, 
+    'github_user': 'matthieumeo',
+    'github_repo': 'prism',
+    'fixed_sidebar': True,
+    'page_width': '90%',
+    'logo': 'prism.png',
+    'logo_name': True,
+    'sidebar_collapse': False,
  }
 
 # -- Options for HTMLHelp output ---------------------------------------------
