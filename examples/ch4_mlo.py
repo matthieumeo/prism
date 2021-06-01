@@ -24,7 +24,7 @@ streg.plot_data()
 streg.plot_green_functions(component='trend')
 streg.plot_green_functions(component='seasonal')
 xx, mu = streg.fit(verbose=1)
-min_values, max_values, samples = streg.sample_credible_region(return_samples=True)
+min_values, max_values, samples = None, None, None # streg.sample_credible_region(return_samples=True)
 streg.summary_plot(min_values=min_values, max_values=max_values)
 streg.plot_seasonal_component(min_values=min_values['seasonal'], max_values=max_values['seasonal'],
                               samples_seasonal=samples['seasonal'])
