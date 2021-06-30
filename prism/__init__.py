@@ -22,21 +22,21 @@ class SeasonalTrendRegression:
     Parameters
     ----------
     sample_times: numpy.ndarray
-        Sample times :math:`\{t_1, \ldots, t_L\}\in\mathbb{R}`.
+        Sample times :math:`\{t_1, \ldots, t_L\}\subset \mathbb{R}`.
     sample_values: numpy.ndarray
-        Observed values of the signal :math:`\{y_1, \ldots, y_L\}\in\mathbb{R}` at the sample times. Can be noisy.
+        Observed values of the signal :math:`\{y_1, \ldots, y_L\}\subset \mathbb{R}` at the sample times. Can be noisy.
     period: Number
-        Period :math:`T>0` for the seasonal component.
+        Period :math:`\Theta>0` for the seasonal component.
     forecast_times: numpy.ndarray
         Unobserved times for forecasting of the signal and its trend component.
     seasonal_forecast_times: numpy.ndarray
-        Unobserved times in :math:`[0,T)` for forecasting of the seasonal component.
+        Unobserved times in :math:`[0,\Theta)` for forecasting of the seasonal component.
     nb_of_knots: Tuple[int, int]
-        Number of knots :math:`(N, M)` for the seasonal and trend component respectively. High values of N and M can lead
+        Number of knots :math:`(N, M)` for the seasonal and trend component respectively. High values of :math:`N` and :math:`M` can lead
         to numerical instability.
     spline_orders: Tuple[int, int]
-        Exponents :math:`(k,j)` of the iterated derivative operators defining the splines involved in the seasonal
-        and trend component respectively. Both parameters must be strictly bigger than one.
+        Exponents :math:`(P,Q)` of the iterated derivative operators defining the splines involved in the seasonal
+        and trend component respectively. Both parameters must be *strictly* bigger than one.
     penalty_strength: Optional[Number]
         Value of the penalty strength :math:`\lambda\in \mathbb{R}_+`.
     penalty_tuning: bool
@@ -68,77 +68,79 @@ class SeasonalTrendRegression:
     Consider an unknown signal :math:`f:\mathbb{R}\to \mathbb{R}` of which we possess *noisy* samples
 
     .. math::
-
-        y_i=f(t_i)+\epsilon_i, \qquad i =1,\ldots, L,
-
-    for some non-uniform sample times :math:`\{t_1,\ldots, t_L\}\subset \mathbb{R}` and additive i.i.d. noise perturbations  :math:`\epsilon_i`.
-
+    
+      y_\ell=f(t_\ell)+\epsilon_\ell, \qquad \ell =1,\ldots, L,
+    
+    for some non-uniform sample times :math:`\{t_1,\ldots, t_L\}\subset \mathbb{R}` and additive i.i.d. noise perturbations  :math:`\epsilon_\ell`.
+    
     The ``SeasonalTrendRegression`` class assumes the following parametric form for :math:`f`:
-
+    
     .. math::
-
-        f(t)=\sum_{n=1}^N \alpha_m \rho_{D^k}(t-\tau_n) \quad + \quad  \sum_{m=1}^M \beta_m \psi_{D^j}(t-\eta_m) \quad+\quad \gamma_0 \quad+\quad \gamma_1 t.
-        \tag{1}
-
+    
+      f(t)=\sum_{n=1}^N \alpha_n \rho_{P}(t-\theta_n) \quad + \quad  \sum_{m=1}^M \beta_m \psi_{Q}(t-\eta_m) \quad+\quad \sum_{q=1}^{Q}\gamma_q  t^{q-1}.
+      \tag{1}
+    
     where:
-
-    * :math:`\sum_{n=1}^N \alpha_m=0`,
-    * :math:`\rho_{D^k}:[0, T[\to \mathbb{R}` is the *Green function* associated to the :math:`k`-iterated periodic derivative operator
-      :math:`D^k` with period :math:`T`,
-    * :math:`\psi_{D^j}:\mathbb{R}\to \mathbb{R}` is the *causal Green function* associated to the :math:`j`-iterated derivative operator
-      :math:`D^j`,
-    * :math:`\tau_n:=(n-1)T/N,` and :math:`\eta_m:=R_{min}\,+\,m(R_{max}-R_{min})/(M+1),` for some :math:`R_{min}<R_{max}`.
-
-    The *seasonal component* :math:`f_S(t):=\sum_{n=1}^N \alpha_m \rho_{D^k}(t-\tau_n)` is a (zero mean) :math:`T`-periodic spline w.r.t. the
-    iterated periodic derivative operator :math:`D^k`. It models short-term cyclical temporal variations of the signal :math:`f`.
-
-    The *trend component* :math:`f_T(t):=\sum_{m=1}^M \beta_m \psi_{D^j}(t-\eta_m)+\gamma_0 + \gamma_1 t` is the sum of a spline
-    (w.r.t. the iterated derivative operator :math:`D^j`) and an affine function :math:`\gamma_0 + \gamma_1 t`. It models long-term non-cyclical temporal variations of :math:`f`.
+    
+    * :math:`\sum_{n=1}^N \alpha_n=0` (so as to enforce a zero-mean seasonal component, see note below),
+    * :math:`\rho_{P}:[0, \Theta[\to \mathbb{R}` is the :math:`\Theta`-periodic *Green function* associated to the :math:`P`-iterated derivative operator :math:`D^P` [Periodic]_,
+    * :math:`\psi_{Q}:\mathbb{R}\to \mathbb{R}` is the *causal Green function* associated to the :math:`Q`-iterated derivative operator :math:`D^Q` [Green]_,
+    * :math:`\theta_n:=(n-1)\Theta/N,` and :math:`\eta_m:=R_{min}\,+\,m(R_{max}-R_{min})/(M+1),` for some :math:`R_{min}<R_{max}`.
+    
+    The *seasonal component* :math:`f_S(t):=\sum_{n=1}^N \alpha_n \rho_{P}(t-\theta_n)` is a (zero mean) :math:`\Theta`-periodic spline w.r.t. the
+    iterated derivative operator :math:`D^k` [Periodic]_. It models short-term cyclical temporal variations of the signal :math:`f`.
+    
+    The *trend component* :math:`f_T(t):=\sum_{m=1}^M \beta_m \psi_{Q}(t-\eta_m)+\sum_{q=1}^{Q}\gamma_q  t^{q-1}` is a spline
+    w.r.t. the iterated derivative operator :math:`D^Q`. It is the sum of a piecewise polynomial term :math:`\sum_{m=1}^M \beta_m \psi_{Q}(t-\eta_m)`  and a degree :math:`Q-1` polynomial :math:`\sum_{q=1}^{Q}\gamma_q  t^{q-1}` [Splines]_. It models long-term non-cyclical temporal variations of :math:`f`.
+    
+    .. note:: 
+       
+       Note that the mean of :math:`f` could be assigned to the seasonal or trend component interchangeably, or even split between the two components. Constraining the seasonal component to have zero mean allows us to fix this unidentifiability issue. 
 
     **Fitting Procedure**
 
     The method :py:meth:`~prism.__init__.SeasonalTrendRegression.fit` recovers the coefficients :math:`\mathbf{a}=[\alpha_1,\ldots,\alpha_N]\in\mathbb{R}^N`, :math:`\mathbf{b}=[\beta_1,\ldots,\beta_M]\in\mathbb{R}^M` and
-    :math:`\mathbf{c}=[\gamma_0,\gamma_1]\in\mathbb{R}^2` from the data :math:`\mathbf{y}=[y_1,\ldots,y_L]\in\mathbb{R}^L`
+    :math:`\mathbf{c}=[\gamma_1,\ldots,\gamma_{Q}]\in\mathbb{R}^{Q}` from the data :math:`\mathbf{y}=[y_1,\ldots,y_L]\in\mathbb{R}^L`
     as *minima at posteriori (MAP)* of the negative log-posterior distribution:
-
+    
     .. math::
-
-        (\hat{\mathbf{a}}, \hat{\mathbf{b}}, \hat{\mathbf{c}})=
-        \arg\min_{({\mathbf{a}}, {\mathbf{b}},{\mathbf{c}})\in\mathbb{R}^N\times\mathbb{R}^M\times \mathbb{R}^2 } \frac{1}{p}\left\|\mathbf{y}-\mathbf{K} \mathbf{a} -\mathbf{L} \mathbf{b} - \mathbf{V} \mathbf{c}\right\|_p^p
-        \,+\, \lambda \left(\theta \|\mathbf{a}\|_1 + (1-\theta)\|\mathbf{b}\|_1\right) \,+\, \iota(\mathbf{1}^T\mathbf{a}) \tag{2}
-
+    
+      (\hat{\mathbf{a}}, \hat{\mathbf{b}}, \hat{\mathbf{c}})=
+      \arg\min_{({\mathbf{a}}, {\mathbf{b}},{\mathbf{c}})\in\mathbb{R}^N\times\mathbb{R}^M\times \mathbb{R}^Q } \frac{1}{p}\left\|\mathbf{y}-\mathbf{K} \mathbf{a} -\mathbf{L} \mathbf{b} - \mathbf{V} \mathbf{c}\right\|_p^p
+      \,+\, \lambda \left(\theta \|\mathbf{a}\|_1 + (1-\theta)\|\mathbf{b}\|_1\right) \,+\, \iota(\mathbf{1}^T\mathbf{a}) \tag{2}
+    
     where:
-
+    
     * :math:`p\in \{1,2\}` is chosen according the the noise distribution (:math:`p=1` in the presence of outliers),
-    * :math:`\mathbf{K}\in\mathbb{R}^{L\times N}` is given by: :math:`\mathbf{K}_{in}=\rho_{D^k}(t_i-\tau_j)`,
-    * :math:`\mathbf{L}\in\mathbb{R}^{L\times M}` is given by: :math:`\mathbf{L}_{im}=\psi_{D^j}(t_i-\eta_m)`,
-    * :math:`\mathbf{V}\in\mathbb{R}^{L\times 2}` is given by: :math:`\mathbf{L}_{ip}=t^p_j`,
+    * :math:`\mathbf{K}\in\mathbb{R}^{L\times N}` is given by: :math:`\mathbf{K}_{\ell n}=\rho_{P}(t_\ell-\theta_j)`,
+    * :math:`\mathbf{L}\in\mathbb{R}^{L\times M}` is given by: :math:`\mathbf{L}_{\ell m}=\psi_{Q}(t_\ell-\eta_m)`,
+    * :math:`\mathbf{V}\in\mathbb{R}^{L\times Q}` is a Vandermonde matrix given by: :math:`\mathbf{V}_{\ell q}=t^{q-1}_\ell`,
     * :math:`\lambda>0` and :math:`\theta\in [0,1]` are regularisation parameters,
     * :math:`\iota:\mathbb{R}\to\{0, +\infty\}` is the *indicator function* returning :math:`0` if the input is zero and :math:`+\infty` otherwise.
-
-    If requested by the user, the penalty parameter :math:`\lambda` can be learnt from the data by introducing a gamma hyper-prior and finding the MAP
-    of the posterior on :math:`{\mathbf{a}}, {\mathbf{b}},{\mathbf{c}}` and :math:`\lambda` jointly.
-
+    
+    If requested by the user, the penalty parameter :math:`\lambda` can be learnt from the data by introducing a *Gamma hyper-prior* and finding the MAP
+    of the posterior on :math:`{\mathbf{a}}, {\mathbf{b}},{\mathbf{c}}` and :math:`\lambda` jointly [Tuning]_.
+    
     The :math:`R^2`-score of the regression is provided by the method  :py:meth:`~prism.__init__.SeasonalTrendRegression.r2score`.
 
     **Uncertainty Quantification**
 
-    The method :py:meth:`~prism.__init__.SeasonalTrendRegression.sample_credible_region` returns approximate marginal pointwise credible
-    intervals for the model parameters, the seasonal and trend components and their sum. This is achieved by sampling uniformly the
-    approximate highest density posterior credible region:
-
-        .. math::
-
-            C_{\xi}=\left\{({\mathbf{a}}, {\mathbf{b}},{\mathbf{c}})\in\mathbb{R}^N\times\mathbb{R}^M\times \mathbb{R}^2: J({\mathbf{a}}, {\mathbf{b}},{\mathbf{c}})\leq
-            J(\hat{\mathbf{a}}, \hat{\mathbf{b}}, \hat{\mathbf{c}}) + (N+M+2) (\nu_\xi+1)\right\} \tag{3}
-
-    where :math:`\xi\in [0,1]` is the confidence level associated to the credible region, :math:`\nu_\xi:=\sqrt{16\log(3/\xi)/(N+M+2)}`,
-    and :math:`J:\mathbb{R}^N\times\mathbb{R}^M\times \mathbb{R}^2\to \mathbb{R}_+` is the negative log-posterior in (3).
-
+    The method :py:meth:`~prism.__init__.SeasonalTrendRegression.sample_credible_region` returns approximate *marginal pointwise credible
+    intervals* for the model parameters, the seasonal and trend components and their sum. This is achieved by sampling uniformly (via the hit-and-run algorithm) the
+    approximate highest density posterior credible region [Credible]_:
+    
+      .. math::
+    
+          C_{\xi}=\left\{({\mathbf{a}}, {\mathbf{b}},{\mathbf{c}})\in\mathbb{R}^N\times\mathbb{R}^M\times \mathbb{R}^Q: J({\mathbf{a}}, {\mathbf{b}},{\mathbf{c}})\leq
+          J(\hat{\mathbf{a}}, \hat{\mathbf{b}}, \hat{\mathbf{c}}) + (N+M+Q) (\nu_\xi+1)\right\} \tag{3}
+    
+    where :math:`\xi\in [0,1]` is the confidence level associated to the credible region, :math:`\nu_\xi:=\sqrt{16\log(3/\xi)/(N+M+Q)}`,
+    and :math:`J:\mathbb{R}^N\times\mathbb{R}^M\times \mathbb{R}^Q\to \mathbb{R}_+` is the negative log-posterior in (3).
+    
     Approximate marginal pointwise credible intervals are then obtained by evaluating (1) (and the seasonal/trend components)
     for the various samples of :math:`C_{\xi}` gathered and then taking the pointwise minima and maxima of all the sample curves.
-
-    Note that (3) can also be used for hypothesis testing on the parameters of the model (see method :py:meth:`~prism.__init__.SeasonalTrendRegression.is_credible`
+    
+    Note that (3) can also be used for *hypothesis testing* on the parameters of the model (see method :py:meth:`~prism.__init__.SeasonalTrendRegression.is_credible`
     for more on the topic).
     
     Examples
@@ -201,21 +203,21 @@ class SeasonalTrendRegression:
         Parameters
         ----------
         sample_times: numpy.ndarray
-            Sample times :math:`\{t_1, \ldots, t_L\}\in\mathbb{R}`.
+            Sample times :math:`\{t_1, \ldots, t_L\}\subset \mathbb{R}`.
         sample_values: numpy.ndarray
-            Observed values of the signal :math:`\{y_1, \ldots, y_L\}\in\mathbb{R}` at the sample times. Can be noisy.
+            Observed values of the signal :math:`\{y_1, \ldots, y_L\}\subset \mathbb{R}` at the sample times. Can be noisy.
         period: Number
-            Period :math:`T>0` for the seasonal component.
+            Period :math:`\Theta>0` for the seasonal component.
         forecast_times: numpy.ndarray
             Unobserved times for forecasting of the signal and its trend component.
         seasonal_forecast_times: numpy.ndarray
-            Unobserved times in :math:`[0,T)` for forecasting of the seasonal component.
+            Unobserved times in :math:`[0,\Theta)` for forecasting of the seasonal component.
         nb_of_knots: Tuple[int, int]
-            Number of knots :math:`(N, M)` for the seasonal and trend component respectively. High values of N and M can lead
+            Number of knots :math:`(N, M)` for the seasonal and trend component respectively. High values of :math:`N` and :math:`M` can lead
             to numerical instability.
         spline_orders: Tuple[int, int]
-            Exponents :math:`(k,j)` of the iterated derivative operators defining the splines involved in the seasonal
-            and trend component respectively. Both parameters must be strictly bigger than one.
+            Exponents :math:`(P,Q)` of the iterated derivative operators defining the splines involved in the seasonal
+            and trend component respectively. Both parameters must be *strictly* bigger than one.
         penalty_strength: Optional[Number]
             Value of the penalty strength :math:`\lambda\in \mathbb{R}_+`.
         penalty_tuning: bool
@@ -389,7 +391,7 @@ class SeasonalTrendRegression:
         -------
         Tuple[np.ndarray, float]
             Estimates of :math:`(\hat{\mathbf{a}}, \hat{\mathbf{b}}, \hat{\mathbf{c}})` concatenated as a single array with
-            size :math:`N+M+2` and the auto-tuned penalty parameter :math:`\lambda`.
+            size :math:`N+M+Q` and the auto-tuned penalty parameter :math:`\lambda`.
         """
 
         x, z = None, None
@@ -598,7 +600,7 @@ class SeasonalTrendRegression:
         Parameters
         ----------
         coeffs: np.ndarray
-            Coefficients to be tested (array of size (N+M+2)).
+            Coefficients to be tested (array of size (N+M+Q)).
         credible_lvl: Optional[float]
             Credible level :math:`\xi\in[0,1]`.
         gamma: Optional[float]
@@ -651,10 +653,11 @@ class SeasonalTrendRegression:
         test_set:
             Optional test dataset.
         """
+        colors = plt.rcParams['axes.prop_cycle'].by_key()['color']
         f = plt.figure(fig)
-        sc1 = plt.scatter(self.sample_times, self.sample_values)
+        sc1 = plt.scatter(self.sample_times, self.sample_values, c=colors[1])
         if test_set:
-            sc2 = plt.scatter(self.test_times, self.test_values)
+            sc2 = plt.scatter(self.test_times, self.test_values, c=colors[2])
             plt.legend([sc1, sc2], ['Training', 'Test'])
         else:
             sc2 = None
@@ -913,7 +916,7 @@ class SeasonalTrendRegression:
             plt.plot(self.forecast_times, samples_sum, color=colors[0], alpha=0.1, linewidth=0.5,
                      zorder=1)
         plt.legend(legend_handles, legend_labels)
-        plt.title('Trend Component')
+        plt.title('Seasonal + Trend')
         return fig
 
 
