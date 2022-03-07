@@ -75,15 +75,21 @@ html_theme = "alabaster"
 html_theme_options = {
     #'nosidebar': True, # Disable showing the sidebar. Defaults to 'false'
     'description': 'Spline-based regression and decomposition of time series with seasonal and trend components.',
+    'description_font_style': 'italic',
     'github_banner': True,
-    'github_button': True, 
+    'github_button': True,
     'github_user': 'matthieumeo',
     'github_repo': 'prism',
     'fixed_sidebar': True,
-    'page_width': '90%',
+    'page_width': '70%',
     'logo': 'prism.png',
     'logo_name': True,
+    'logo_text_align': 'center',
+    'body_text_align': 'justify',
     'sidebar_collapse': False,
+    'touch_icon': 'prism.png',
+    'show_powered_by': True,
+
  }
 
 # -- Options for HTMLHelp output ---------------------------------------------

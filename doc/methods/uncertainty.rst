@@ -1,9 +1,11 @@
+.. _uncertainty:
+
 Uncertainty Quantification
 --------------------------
 
-The method :py:meth:`~prism.__init__.SeasonalTrendRegression.sample_credible_region` returns approximate *marginal pointwise credible
+The method :py:meth:`~prism.core.SeasonalTrendRegression.sample_credible_region` returns approximate *marginal pointwise credible
 intervals* for the model parameters, the seasonal and trend components and their sum. This is achieved by sampling uniformly (via the hit-and-run algorithm) the
-approximate highest density posterior credible region [Credible]_:
+approximate highest density posterior credible region [P]_:
 
   .. math::
 
@@ -16,5 +18,5 @@ and :math:`J:\mathbb{R}^N\times\mathbb{R}^M\times \mathbb{R}^Q\to \mathbb{R}_+` 
 Approximate marginal pointwise credible intervals are then obtained by evaluating (1) (and the seasonal/trend components)
 for the various samples of :math:`C_{\xi}` gathered and then taking the pointwise minima and maxima of all the sample curves.
 
-Note that (3) can also be used for *hypothesis testing* on the parameters of the model (see method :py:meth:`~prism.__init__.SeasonalTrendRegression.is_credible`
+Note that (3) can also be used for *hypothesis testing* on the parameters of the model (see method :py:meth:`~prism.core.SeasonalTrendRegression.is_credible`
 for more on the topic).

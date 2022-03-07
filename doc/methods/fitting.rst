@@ -1,7 +1,9 @@
+.. _fitting:
+
 Fitting Procedure
 -----------------
 
-The method :py:meth:`~prism.__init__.SeasonalTrendRegression.fit` recovers the coefficients :math:`\mathbf{a}=[\alpha_1,\ldots,\alpha_N]\in\mathbb{R}^N`, :math:`\mathbf{b}=[\beta_1,\ldots,\beta_M]\in\mathbb{R}^M` and
+The method :py:meth:`~prism.core.SeasonalTrendRegression.fit` recovers the coefficients :math:`\mathbf{a}=[\alpha_1,\ldots,\alpha_N]\in\mathbb{R}^N`, :math:`\mathbf{b}=[\beta_1,\ldots,\beta_M]\in\mathbb{R}^M` and
 :math:`\mathbf{c}=[\gamma_1,\ldots,\gamma_{Q}]\in\mathbb{R}^{Q}` from the data :math:`\mathbf{y}=[y_1,\ldots,y_L]\in\mathbb{R}^L`
 as *minima at posteriori (MAP)* of the negative log-posterior distribution:
 
@@ -20,7 +22,8 @@ where:
 * :math:`\lambda>0` and :math:`\theta\in [0,1]` are regularisation parameters,
 * :math:`\iota:\mathbb{R}\to\{0, +\infty\}` is the *indicator function* returning :math:`0` if the input is zero and :math:`+\infty` otherwise.
 
+Problem (2) is solved via the first-order *Condat-Vu primal-dual splitting method* [C]_ implemented in `Pycsou <https://github.com/matthieumeo/pycsou>`_.
 If requested by the user, the penalty parameter :math:`\lambda` can be learnt from the data by introducing a *Gamma hyper-prior* and finding the MAP
-of the posterior on :math:`{\mathbf{a}}, {\mathbf{b}},{\mathbf{c}}` and :math:`\lambda` jointly [Tuning]_.
+of the posterior on :math:`{\mathbf{a}}, {\mathbf{b}},{\mathbf{c}}` and :math:`\lambda` jointly [PF]_.
 
-The :math:`R^2`-score of the regression is provided by the method  :py:meth:`~prism.__init__.SeasonalTrendRegression.r2score`.
+The :math:`R^2`-score of the regression is provided by the method  :py:meth:`~prism.core.SeasonalTrendRegression.r2score`.
