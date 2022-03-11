@@ -1,0 +1,88 @@
+
+
+The files contain the python code used to construct a 'marine boundary layer' (mbl) gridded surface
+of mixing ratio as a function of time and latitude for meaurements of an atmospheric trace
+gas, such as co2.  See https://www.esrl.noaa.gov/gmd/ccgg/mbl/ for more information.
+
+
+REQUIRED:
+
+	 - An init file.  The init file list the sites and curve fitting parameters that
+	are to be used to construct the mbl surface.  An example init file is 'init.co2.txt'.
+	The init file must contain 3 non-commented header lines (lines beginning with '#' are comments).
+	The first line is " sync1    sync2     rlm   fillgap   mblgap" which explains the fields
+	in the second line. The second line has values, such as
+		1979     2015     2.0         8       48
+	which are the start date, end date, minimum length of record in years, and the size of
+	gaps (in days) which will be filled in by the curve fits that will be done to the data.
+	The third line identifies the fields in the remainder of the file.
+	The remaining lines give the site code and curve fitting parameter for each site, and a
+	0/1 flag if the site is to be used in the mbl construction.  
+	See https://www.esrl.noaa.gov/gmd/ccgg/mbl/crvfit/crvfit.html for more information on the
+	curve fitting process.
+
+OPTIONAL:
+
+	Data and site information can be obtained from either the gmd database or from text files.
+	To get data from text files, you will need:
+
+	- Site information file.  This file gives information for the sites listed in the init file.
+	There is one line of data for each site, and each line contains 8 fields seperated by 
+	a '|' character: 
+		site code, name, country, latitude, longitude, elevation, intake height, comment
+	The site code and latitude are most important, and the code must match (case insensitive) the
+	code used in the init file.  An example file is 'siteinfo.txt', which has information for
+	known sites that the Global Monitoring Laboratory (GML) of NOAA uses.
+
+
+	- Data files.  These contain the input data that are used to construct the mbl surface.
+	There is one file for each site, with two columns of data, a decimal date and a mixing ratio.
+	Examples are contained in the 'data' directory.  The name of the data file must be
+	the site code, followed by '_dat.' followed by the gas, ie 'co2'.  For example, 'alt_dat.co2'
+	for data from the Alert station in Canada.
+
+Dependencies:
+
+	The code requires these python packages be installed:
+		numpy
+		scipy
+		dateutil
+		MySQLdb or pymysql
+		
+
+Python Code files:
+
+	The main code used is in the file 'dei.py', which contains a class for performing the 
+	mbl calculations.  An example of using this module is in the file 'dei_driver.py', and
+	an example of calling the driver script is in the 'dei.sh' bash shell script.
+
+	bs_network.py - Routine for creating bootstrap networks from original site list.
+	ccg_data.py - Contains routines for reading the data files.
+	ccg_dates.py - Routines for converting dates from one format to another
+	ccg_db.py - Routines for accessing the gmd database
+	ccg_filter.py - Performs the curve fitting and filtering of the data
+	ccg_pptfit.py - Calculates latitude gradients
+	ccg_quickfilter.py - Performs  outlier rejection of the data (not used when using data from text files).
+	ccg_readinit.py - Reads the init file
+	ccg_siteinfo.py - Reads the site information file (called by ccg_readinit.py)
+	ccg_utils.py - Utility routines needed by the software
+	dei_bs.py - Main class for summarizing bootstrap uncertainty calculations
+	dei_bs_driver.py - Python script to create the dei_bs class and summarizes bootstrap runs
+	dei.py - Main class for performing mbl calculations
+	dei_driver.py - Python script to create the dei class and run the mbl calculations.
+	dei_effective_unc.py - Python script to add together all the bootstrap surface files 
+		and compute total effective uncertainty
+
+	The python code will run under python >=2.6, and requires the numpy, scipy, and MySQL-python packages to be
+	available. 
+
+
+Output:
+	Numerous files are created, but the main result is a file called 'surface.mbl.co2', 
+	which has the values of the mbl surface at each surface grid point.  A similar file
+	'surface.growthrate.mbl.co2' has the growth rate values (ppm/year) derived from the
+	mbl surface file.  The results are placed in a directory specified by the 'resultsdir' variable
+	in the creation of the dei class.
+
+To run the calculations, look at the dei.sh and dei_driver.py scripts, and modify or create similar
+scripts to create the mbl.

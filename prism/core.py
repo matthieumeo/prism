@@ -784,10 +784,10 @@ class SeasonalTrendRegression:
             plt.fill_between(self.seasonal_forecast_times, min_values, max_values, color=colors['lightblue'], alpha=0.3,
                              zorder=2)
         if samples_seasonal is not None:
-            plt.plot(self.seasonal_forecast_times, samples_seasonal, color=colors['blue'], alpha=0.2, linewidth=0.5,
+            plt.plot(self.seasonal_forecast_times, samples_seasonal, color=colors['blue'], alpha=0.15, linewidth=0.3,
                      zorder=2)
-        if kwargs is not None:
-            from prism import _vsplots
+        if 'vscurves' in list(kwargs.keys()):
+            from prism._util import _vsplots
             legend_handles, legend_labels = _vsplots(colors, legend_handles, legend_labels, **kwargs)
         plt.legend(legend_handles, legend_labels)
         plt.title('Seasonal Component')
@@ -845,10 +845,10 @@ class SeasonalTrendRegression:
             plt.fill_between(self.forecast_times, min_values, max_values, color=colors['lightblue'], alpha=0.3,
                              zorder=2)
         if samples_trend is not None:
-            plt.plot(self.forecast_times, samples_trend, color=colors['blue'], alpha=0.2, linewidth=0.5,
+            plt.plot(self.forecast_times, samples_trend, color=colors['blue'], alpha=0.15, linewidth=0.3,
                      zorder=2)
-        if kwargs is not None:
-            from prism import _vsplots
+        if 'vscurves' in list(kwargs.keys()):
+            from prism._util import _vsplots
             legend_handles, legend_labels = _vsplots(colors, legend_handles, legend_labels, **kwargs)
         plt.legend(legend_handles, legend_labels)
         plt.title('Trend Component')
@@ -905,10 +905,10 @@ class SeasonalTrendRegression:
             plt.fill_between(self.forecast_times, min_values, max_values, color=colors['lightblue'], alpha=0.3,
                              zorder=2)
         if samples_sum is not None:
-            plt.plot(self.forecast_times, samples_sum, color=colors['blue'], alpha=0.2, linewidth=0.5,
+            plt.plot(self.forecast_times, samples_sum, color=colors['blue'], alpha=0.15, linewidth=0.3,
                      zorder=2)
-        if kwargs is not None:
-            from prism import _vsplots
+        if 'vscurves' in list(kwargs.keys()):
+            from prism._util import _vsplots
             legend_handles, legend_labels = _vsplots(colors, legend_handles, legend_labels, **kwargs)
         plt.legend(legend_handles, legend_labels)
         plt.title('Seasonal + Trend')

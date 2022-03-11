@@ -128,5 +128,6 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
+data/cache/*
 data/finances.csv
 examples/finances.py

@@ -1,0 +1,524 @@
+AAC | Austin Cary Memorial Forest, Gainesville, FL | United States | 29.738100 | -82.218800 | 44.0 | -99.0 | 5 | n/a
+AAO | Airborne Aerosol Observatory, Bondville, Illinois | United States | 40.050000 | -88.370000 | 230.0 | -99.0 | 6 | n/a
+ABP | Arembepe, Bahia | Brazil | -12.770000 | -38.170000 | 1.0 | -99.0 | 3 | n/a
+ABQ | Albuquerque, New Mexico | United States | 35.038000 | -106.622100 | 1617.0 | -99.0 | 7 | n/a
+ABT | Abbotsford, British Columbia | Canada | 49.033300 | -122.366700 | 100.0 | -99.0 | 8 | n/a
+ACR | Chestnut Ridge, Tennessee | United States | 35.931100 | -84.332400 | 372.5 | -99.0 | 5 | n/a
+ACV | Canaan Valley, West Virginia | United States | 39.119000 | -79.452300 | 1026.0 | -99.0 | 5 | n/a
+AFP | Ameriflux, Fort Peck, Montana | United States | 48.307900 | -105.101000 | 0.0 | -99.0 | 0 | n/a
+AIA | Bass Strait/Cape Grim, Tasmania | Australia | -40.530000 | 144.300000 | 0.0 | -99.0 | -10 | n/a
+ALF | Alta Floresta | Brazil | -8.920000 | -56.790000 | -10000.0 | -99.0 | 4 | n/a
+ALT | Alert, Nunavut | Canada | 82.450800 | -62.507200 | 190.0 | -99.0 | 4 | n/a
+AME | Mead, Nebraska | United States | 41.164900 | -96.470100 | 362.0 | -99.0 | 6 | n/a
+AMS | Amsterdam Island | France | -37.798300 | 77.537800 | 55.0 | -99.0 | -5 | n/a
+AMT | Argyle, Maine | United States | 45.034500 | -68.682100 | 53.0 | -99.0 | 5 | n/a
+AMY | Anmyeon-do | Republic of Korea | 36.538900 | 126.329500 | 85.1 | -99.0 | -9 | n/a
+AOCN05 | Atlantic Ocean Cruise (5 N) | N/A | 5.000000 | -30.000000 | 0.0 | -99.0 | -99 | n/a
+AOCN10 | Atlantic Ocean Cruise (10 N) | N/A | 10.000000 | -35.000000 | 0.0 | -99.0 | -99 | n/a
+AOCN15 | Atlantic Ocean Cruise (15 N) | N/A | 15.000000 | -40.000000 | 0.0 | -99.0 | -99 | n/a
+AOCN20 | Atlantic Ocean Cruise (20 N) | N/A | 20.000000 | -45.000000 | 0.0 | -99.0 | -99 | n/a
+AOCN25 | Atlantic Ocean Cruise (25 N) | N/A | 25.000000 | -52.000000 | 0.0 | -99.0 | -99 | n/a
+AOCN30 | Atlantic Ocean Cruise (30 N) | N/A | 30.000000 | -60.000000 | 0.0 | -99.0 | -99 | n/a
+AOCS05 | Atlantic Ocean Cruise (5 S) | N/A | -5.000000 | -20.000000 | 0.0 | -99.0 | -99 | n/a
+AOCS10 | Atlantic Ocean Cruise (10 S) | N/A | -10.000000 | -10.000000 | 0.0 | -99.0 | -99 | n/a
+AOCS15 | Atlantic Ocean Cruise (15 S) | N/A | -15.000000 | -5.000000 | 0.0 | -99.0 | -99 | n/a
+AOCS25 | Atlantic Ocean Cruise (25 S) | N/A | -25.000000 | 5.000000 | 0.0 | -99.0 | -99 | n/a
+AOCS30 | Atlantic Ocean Cruise (30 S) | N/A | -30.000000 | 10.000000 | 0.0 | -99.0 | -99 | n/a
+AOZ | Missouri Ozark, Missouri | United States | 38.744100 | -92.200000 | 219.4 | -99.0 | 6 | n/a
+APP | Appalachian State | United States | 36.200000 | -81.700000 | 1100.0 | -99.0 | 0 | n/a
+ARA | Arcturus, Queensland | Australia | -23.858700 | 148.474600 | 175.0 | -99.0 | -10 | n/a
+ARH | Arrival Heights, Antarctica | New Zealand | -77.833000 | 166.200000 | 250.0 | -99.0 | 11 | n/a
+ARM | Atmospheric Radiation Measurement (SGP) | United States | 36.800000 | -97.500000 | -10000.0 | -99.0 | 6 | n/a
+ARN | El Arenosillo | Spain | 37.100000 | -6.733300 | 41.0 | -99.0 | 1 | n/a
+ARV | Arvin, CA | United States | 35.239000 | -118.788700 | 158.0 | -99.0 | 8 | n/a
+ASB | Aline Skaggs Biology, Salt Lake City, UT | United States | 40.754300 | -111.857900 | 1426.5 | -99.0 | 7 | n/a
+ASC | Ascension Island | United Kingdom | -7.966700 | -14.400000 | 85.0 | -99.0 | 1 | n/a
+ASK | Assekrem | Algeria | 23.262500 | 5.632200 | 2710.0 | -99.0 | -1 | n/a
+AVI | St. Croix, Virgin Islands | United States | 17.750000 | -64.750000 | 3.0 | -99.0 | 4 | n/a
+AWSHQ | Germantown, MD | United States | 39.200600 | -77.263100 | 151.0 | -99.0 | 5 | n/a
+AZR | Terceira Island, Azores | Portugal | 38.766000 | -27.375000 | 19.0 | -99.0 | 1 | n/a
+AZV | Azovo | Russia | 54.705000 | 73.029200 | 100.0 | -99.0 | -6 | n/a
+BAL | Baltic Sea | Poland | 55.350000 | 17.220000 | 3.0 | -99.0 | -1 | n/a
+BAO | Boulder Atmospheric Observatory, Colorado | United States | 40.050000 | -105.004000 | 1584.0 | -99.0 | 7 | n/a
+BCK | Behchoko, Northwest Territories | Canada | 62.800000 | -116.050000 | 179.0 | -99.0 | 7 | n/a
+BCS | Baja California Sur | Mexico | 23.300000 | -110.200000 | 4.0 | -99.0 | 7 | n/a
+BEO | Beo-Moussala | Bulgaria | 42.179200 | 23.585600 | 2925.0 | -99.0 | -3 | n/a
+BGI | Bradgate, Iowa | United States | 42.820000 | -94.410000 | 355.1 | -99.0 | 6 | n/a
+BGU | Begur | Spain | 41.970000 | 3.230000 | 11.0 | -99.0 | -1 | n/a
+BHD | Baring Head Station | New Zealand | -41.408300 | 174.871000 | 85.0 | -99.0 | -12 | n/a
+BIK | Bialystok | Poland | 53.200000 | 22.750000 | -10000.0 | -99.0 | -99 | n/a
+BIR | Birkenes Observatory | Norway | 58.388600 | 8.251900 | 219.0 | -99.0 | -1 | n/a
+BIS | Bismarck, North Dakota | United States | 46.771800 | -100.759600 | 511.0 | -99.0 | 6 | n/a
+BKT | Bukit Kototabang | Indonesia | -0.202000 | 100.318000 | 845.0 | -99.0 | -7 | n/a
+BLD | Boulder, Colorado | United States | 39.991000 | -105.260700 | 1628.0 | -99.0 | 7 | n/a
+BLK | Baker Lake, Nunavut | Canada | 64.316700 | -96.016700 | 0.0 | -99.0 | 6 | n/a
+BME | St. Davids Head, Bermuda | United Kingdom | 32.368000 | -64.647600 | 12.0 | -99.0 | 4 | n/a
+BMW | Tudor Hill, Bermuda | United Kingdom | 32.264700 | -64.878800 | 30.0 | -99.0 | 4 | n/a
+BNA | Nashville, Tennessee | United States | 36.246800 | -86.562000 | 182.0 | -99.0 | 6 | n/a
+BND | Bondville, Illinois | United States | 40.051900 | -88.373100 | 230.0 | -99.0 | -6 | n/a
+BNE | Beaver Crossing, Nebraska | United States | 40.800000 | -97.180000 | 465.9 | -99.0 | 6 | n/a
+BOM | Bombay | India | 18.550000 | 72.540000 | 0.0 | -99.0 | 0 | n/a
+BPH | Prospect Hill, Bermuda | United Kingdom | 32.300800 | -64.766000 | 60.0 | -99.0 | 4 | n/a
+BRA | Bratt's Lake Saskatchewan | Canada | 51.200000 | -104.700000 | 595.0 | -99.0 | 6 | n/a
+BRE | Bremen | Germany | 53.110000 | 8.850000 | 0.0 | -99.0 | -99 | n/a
+BRM | Beromunster | Switzerland | 47.189600 | 8.175500 | 797.0 | -99.0 | -1 | n/a
+BRW | Barrow, Alaska | United States | 71.323000 | -156.611400 | 11.0 | -99.0 | 9 | n/a
+BRZ | Berezorechka | Russia | 56.150000 | 84.333300 | 150.0 | -99.0 | -6 | n/a
+BSC | Black Sea, Constanta | Romania | 44.177600 | 28.664700 | 0.0 | -99.0 | -2 | n/a
+BZH | Brittany Coast | France | 48.580000 | -4.670000 | 120.0 | -99.0 | -1 | n/a
+CAK | Akron, Ohio | United States | 40.915400 | -81.441500 | 368.0 | -99.0 | 0 | n/a
+CAL | Calcutta | India | 22.340000 | 88.240000 | 0.0 | -99.0 | 0 | n/a
+CAR | Briggsdale, Colorado | United States | 40.634700 | -104.326900 | 1488.0 | -99.0 | 7 | n/a
+CBA | Cold Bay, Alaska | United States | 55.210000 | -162.720000 | 21.3 | -99.0 | 9 | n/a
+CBM | Caribou, Maine | United States | 46.868000 | -68.013000 | 191.0 | -99.0 | 5 | n/a
+CBY | Cambridge Bay, Nunavut Territory | Canada | 69.011700 | -105.050000 | 35.0 | -99.0 | 7 | n/a
+CDL | Candle Lake, Saskatchewan | Canada | 53.987100 | -105.117900 | 600.0 | -99.0 | 6 | n/a
+CEI | Jena | Germany (CarboEurope ICP) | 50.911000 | 11.567000 | 140.0 | -99.0 | -99 | n/a
+CES | Cesar, Cabauw | the Netherlands | 51.971000 | 4.927000 | -1.0 | -99.0 | -1 | n/a
+CFA | Cape Ferguson, Queensland | Australia | -19.280000 | 147.057000 | 2.0 | -99.0 | -10 | n/a
+CGO | Cape Grim, Tasmania | Australia | -40.683000 | 144.690000 | 94.0 | -99.0 | -10 | n/a
+CHA | Chandigarh | India | 30.420000 | 76.540000 | 0.0 | -99.0 | 0 | n/a
+CHL | Churchill, Manitoba | Canada | 58.750000 | -94.066700 | 29.0 | -99.0 | 6 | n/a
+CHM | Chibougamau, Quebec | Canada | 49.680000 | -74.300000 | 393.0 | -99.0 | 4 | n/a
+CHR | Christmas Island | Republic of Kiribati | 1.700000 | -157.151800 | 0.0 | -99.0 | 10 | n/a
+CHS | Cherskii | Russia | 68.513500 | 161.531300 | 30.0 | -99.0 | -11 | n/a
+CIB | Centro de Investigacion de la Baja Atmosfera (CIBA) | Spain | 41.810000 | -4.930000 | 845.0 | -99.0 | -1 | n/a
+CIT | Pasadena, CA | United States | 34.136500 | -118.126500 | 233.0 | -99.0 | 8 | n/a
+CMA | Cape May, New Jersey | United States | 38.830000 | -74.320000 | 0.0 | -99.0 | 5 | n/a
+CMN | Mt. Cimone Station | Italy | 44.180000 | 10.700000 | 2165.0 | -99.0 | -1 | n/a
+CMO | Cape Meares, Oregon | United States | 45.478000 | -123.968900 | 30.0 | -99.0 | 8 | n/a
+CNGPR | Canoga Park | United States | 34.194900 | -118.604500 | 242.0 | -99.0 | 0 | n/a
+COI | Cape Ochi-ishi | Japan | 43.150000 | 145.500000 | 45.0 | -99.0 | -9 | n/a
+conn05 | CONTRAIL (Comprehensive Observation Network for TRace gases by AIrLiner) |  | 5.000000 | 146.000000 | -10000.0 | -99.0 | -99 | n/a
+conn10 | CONTRAIL (Comprehensive Observation Network for TRace gases by AIrLiner) |  | 10.000000 | 146.000000 | -10000.0 | -99.0 | -99 | n/a
+conn15 | CONTRAIL (Comprehensive Observation Network for TRace gases by AIrLiner) |  | 15.000000 | 146.000000 | -10000.0 | -99.0 | -99 | n/a
+conn20 | CONTRAIL (Comprehensive Observation Network for TRace gases by AIrLiner) |  | 20.000000 | 146.000000 | -10000.0 | -99.0 | -99 | n/a
+conn25 | CONTRAIL (Comprehensive Observation Network for TRace gases by AIrLiner) |  | 25.000000 | 146.000000 | -10000.0 | -99.0 | -99 | n/a
+conn30 | CONTRAIL (Comprehensive Observation Network for TRace gases by AIrLiner) |  | 30.000000 | 146.000000 | -10000.0 | -99.0 | -99 | n/a
+cons05 | CONTRAIL (Comprehensive Observation Network for TRace gases by AIrLiner) |  | -5.000000 | 146.000000 | -10000.0 | -99.0 | -99 | n/a
+cons10 | CONTRAIL (Comprehensive Observation Network for TRace gases by AIrLiner) |  | -10.000000 | 146.000000 | -10000.0 | -99.0 | -99 | n/a
+cons15 | CONTRAIL (Comprehensive Observation Network for TRace gases by AIrLiner) |  | -15.000000 | 146.000000 | -10000.0 | -99.0 | -99 | n/a
+cons20 | CONTRAIL (Comprehensive Observation Network for TRace gases by AIrLiner) |  | -20.000000 | 146.000000 | -10000.0 | -99.0 | -99 | n/a
+cons25 | CONTRAIL (Comprehensive Observation Network for TRace gases by AIrLiner) |  | -25.000000 | 146.000000 | -10000.0 | -99.0 | -99 | n/a
+COS | Cosmos | Peru | -12.120000 | -75.330000 | 4600.0 | -99.0 | 5 | n/a
+CPA | Charles Point, Darwin | Australia | -12.417000 | 130.567000 | 3.0 | -99.0 | -9 | n/a
+CPO | Cheeka Peak, Washington | United States | 48.300000 | -124.620000 | 0.0 | -99.0 | 0 | n/a
+CPR | Cape San Juan | Puerto Rico, USA | 18.381100 | -65.617700 | 66.0 | -99.0 | 0 | n/a
+CPS | Chapais,Quebec | Canada | 49.822200 | -74.976400 | 381.0 | -99.0 | 5 | n/a
+CPT | Cape Point | South Africa | -34.352300 | 18.489100 | 230.0 | -99.0 | -2 | n/a
+CRI | Cape Rama | India | 15.080000 | 73.830000 | 60.0 | -99.0 | -5 | n/a
+CRV | Carbon in Arctic Reservoirs Vulnerability Experiment (CARVE) | United States | 64.986300 | -147.598000 | 611.4 | -99.0 | 8 | n/a
+CRZ | Crozet Island | France | -46.433700 | 51.847800 | 197.0 | -99.0 | -5 | n/a
+CSJ | Cape St. James, British Columbia | Canada | 51.930000 | -131.020000 | 89.0 | -99.0 | 8 | n/a
+CYA | Casey, Antarctica | Australia | -66.283000 | 110.517000 | 47.0 | -99.0 | -8 | n/a
+DAA | Darwin (Charles Point)/Jabirus, Northern Territory | Australia | -12.420000 | 130.570000 | 3.0 | -99.0 | -9 | n/a
+DBK | Daybreak, Utah | United  States | 40.538400 | -112.069600 | 1583.0 | -99.0 | 7 | n/a
+DEC | Delta de l'Ebre | Spain | 40.743900 | 0.786700 | 5.0 | -99.0 | -1 | n/a
+DEM | Demyanskoe | Russia | 59.791400 | 70.871100 | 75.0 | -99.0 | -5 | n/a
+DHA | Dhaka | India | 23.850000 | 90.400000 | 0.0 | -99.0 | 0 | n/a
+DND | Dahlen, North Dakota | United States | 47.500000 | -99.240000 | 472.4 | -99.0 | 6 | n/a
+DRA | Desert Rock, Nevada | United States | 36.623700 | -116.019500 | 1007.0 | -99.0 | 8 | n/a
+DRP | Drake Passage | N/A | -59.000000 | -64.690000 | 0.0 | -99.0 | 4 | n/a
+DSI | Dongsha Island | Taiwan | 20.699200 | 116.729700 | 3.0 | -99.0 | -8 | n/a
+DVV | Danville, Virginia |  | 36.705800 | -79.436900 | 277.0 | -99.0 | 0 | n/a
+DWN | Darwin | Australia | -12.425000 | 130.891000 | 0.0 | -99.0 | -9 | n/a
+DWS | Downsview, Ontario | Canada | 43.780500 | -79.468000 | 198.0 | -99.0 | 4 | n/a
+EDW | Edwards, California | United States | 34.905600 | -117.883200 | 700.0 | -99.0 | -7 | n/a
+EEC | El Estrecho | Spain | 36.058600 | -5.664000 | 20.0 | -99.0 | -1 | n/a
+EFS | Entrada Field Station, Utah | United States | 38.800000 | -109.210000 | 1280.0 | -99.0 | 7 | n/a
+EGB | Egbert, Ontario | Canada | 44.231000 | -79.783200 | 251.0 | -99.0 | 4 | n/a
+EIC | Easter Island | Chile | -27.159700 | -109.428400 | 47.0 | -99.0 | 7 | n/a
+ELA | Experimental Lakes Area, Ontario | Canada | 49.600000 | -93.700000 | 369.0 | -99.0 | 4 | n/a
+ELL | Estany Llong | Spain | 42.574800 | 0.954500 | 2002.0 | -99.0 | -1 | n/a
+ENA | Eastern North Atlantic, Graciosa, Azores | Portugal | 39.091600 | -28.025700 | 30.5 | -99.0 | 0 | n/a
+ERK | Eureka | United States | 80.080000 | -86.420000 | -10000.0 | -99.0 | -99 | n/a
+ESP | Estevan Point,  British Columbia | Canada | 49.382500 | -126.544100 | 7.0 | -99.0 | 8 | n/a
+EST | Esther, Alberta | Canada | 51.663600 | -110.207600 | 707.0 | -99.0 | 6 | n/a
+ETL | East Trout Lake, Saskatchewan | Canada | 54.350100 | -104.983400 | 492.0 | -99.0 | 6 | n/a
+EUR | Eureka, Nunavut | Canada | 79.983000 | -85.950000 | 0.0 | -99.0 | 4 | n/a
+FAT | Fresno, California | United States | 36.770000 | -119.720000 | 0.0 | -99.0 | -8 | n/a
+FBK | Fairbanks, Alaska | United States | 64.860000 | -147.850000 | 133.0 | -99.0 | 9 | n/a
+FEF | Fraser, Colorado | United States | 39.910000 | -105.880000 | 2745.0 | -99.0 | 7 | n/a
+FIK | Finokalia, Crete | Greece | 35.337800 | 25.669400 | 150.0 | -99.0 | -2 | n/a
+FLK | Falkland Islands | United Kingdom | -51.700000 | -57.870000 | 51.0 | -99.0 | 5 | n/a
+FMS | Fort McKay, Alberta | Canada | 57.183300 | -111.633300 | 250.0 | -99.0 | 7 | n/a
+FNE | Fort Nelson, British Columbia | Canada | 58.841200 | -122.573700 | 361.0 | -99.0 | 8 | n/a
+FNS | North Sea Platform (F3) | Netherlands | 54.840000 | 4.730000 | 0.0 | -99.0 | -1 | n/a
+FPK | Fort Peck, Montana | United States | 48.307800 | -105.101700 | 634.0 | -99.0 | 7 | n/a
+FSD | Fraserdale | Canada | 49.875200 | -81.570000 | 210.0 | -99.0 | 5 | n/a
+FTL | Fortaleza | Brazil | -3.520000 | -38.280000 | 3.0 | -99.0 | 3 | n/a
+FWI | Fairchild, Wisconsin | United States | 44.660000 | -90.960000 | 334.3 | -99.0 | 6 | n/a
+GAT | Gartow | Germany | 53.065700 | 11.442900 | 70.0 | -99.0 | 2 | n/a
+GCI01 | Monroe, Louisana | United States | 32.469000 | -92.282900 | 65.0 | -99.0 | 5 | n/a
+GCI02 | Grenada, Mississippi | United  States | 33.752500 | -89.853900 | 105.0 | -99.0 | 5 | n/a
+GCI03 | Magee, Mississippi | United  States | 31.886900 | -89.727600 | 132.0 | -99.0 | 5 | n/a
+GCI04 | Millerville, AL | United  States | 33.175900 | -85.891100 | 328.0 | -99.0 | 5 | n/a
+GCI05 | Panama City, Florida | United  States | 30.195100 | -85.833600 | 5.0 | -99.0 | 5 | n/a
+GHG01 | EarthNetworks Bucktown MD Tower | United States | 38.459700 | -76.043100 | 2.7 | -99.0 | 5 | n/a
+GHG03 | Robert D Summey - Nickelsville, Dublin, GA | United States | 32.654200 | -83.029700 | 107.9 | -99.0 | 5 | n/a
+GHG05 | County Communication, Houlton, ME | United States | 46.143100 | -68.113300 | 303.0 | -99.0 | 5 | n/a
+GHG06 | City of Bagley, Bagley, MN | United States | 47.520600 | -95.425600 | 453.2 | -99.0 | 5 | n/a
+GHG08 | Charles S Hayes, Inc, Bremen, IN | United States | 41.458100 | -86.193300 | 252.1 | -99.0 | 5 | n/a
+GHG09 | United Telephone Mutual Aid Corp, Munich, ND | United States | 48.666100 | -98.841400 | 485.9 | -99.0 | 6 | n/a
+GHG10 | Clear Channel - WWDM SC, Wedgefield, SC | United States | 33.854200 | -80.529700 | 67.1 | -99.0 | 5 | n/a
+GHG12 | Clear Channel - WTQR, Danbury, NC | United States | 36.376900 | -80.368900 | 574.9 | -99.0 | 5 | n/a
+GHG15 | Clear Channel - WRVA, Middlesex, NC | United States | 35.831400 | -78.145300 | 73.5 | -99.0 | 5 | n/a
+GHG16 | Clear Channel - WKEQ, Tateville, KY | United States | 36.961100 | -84.568300 | 373.4 | -99.0 | 5 | n/a
+GHG18 | Clear Channel - CapStar, Richmond, VA | United States | 37.508900 | -77.576100 | 103.9 | -99.0 | 5 | n/a
+GHG19 | Clear Channel - WSUS, Hamburg, NJ | United States | 41.143600 | -74.538300 | 407.8 | -99.0 | 5 | n/a
+GHG20 | WUSY, Signal Mountain, TN | United States | 35.207200 | -85.286400 | 605.0 | -99.0 | 5 | n/a
+GHG21 | Clear Channel - WKCI, Hamden, CT | United States | 41.433600 | -72.945300 | 193.8 | -99.0 | 5 | n/a
+GHG25 | Salt and Light Tower, Lewisburg, PA | United States | 40.944700 | -76.878900 | 140.5 | -99.0 | 5 | n/a
+GHG35 | New Hampshire Public Broadcasting, Durham, NH | United States | 43.708300 | -72.153900 | 24.4 | -99.0 | 5 | n/a
+GHG38 | Roser Communication Network, Utica, NY | United States | 42.878900 | -74.785000 | 124.0 | -99.0 | 5 | n/a
+GHG39 | Victorville GHG, Oro Grande, CA | United States | 34.609400 | -117.287200 | 1417.3 | -99.0 | 8 | n/a
+GHG40 | Mauna Loa Observatory, Hawaii | United States | 19.536100 | -155.576700 | 3396.0 | -99.0 | 10 | n/a
+GHG41 | Point Six, Montana | United States | 47.041100 | -113.986100 | 981.0 | -99.0 | 7 | n/a
+GHG42 | Utah | United States | 40.766900 | -111.847500 | 1298.0 | -99.0 | 7 | n/a
+GHG43 | Corvallis, Oregon | United States | 44.563900 | -123.286400 | 69.0 | -99.0 | 8 | n/a
+GHG44 | California | United States | 34.283900 | -118.472500 | 81.0 | -99.0 | 8 | n/a
+GHG45 | San Clemente Island | United States | 33.417900 | -111.928800 | 358.0 | -99.0 | 0 | n/a
+GHG47 | New York | United States | 40.749400 | -73.638300 | 33.0 | -99.0 | 5 | n/a
+GHG48 | Halethorpe | United States | 39.257600 | -76.673500 | 72.0 | -99.0 | 0 | n/a
+GHG54 | Mashpee | United States | 41.656800 | -70.497300 | 33.0 | -99.0 | 0 | n/a
+GHG55 | Arlington | United States | 38.891600 | -77.131200 | 110.0 | -99.0 | 0 | n/a
+GHG56 | NW District of Columbia | United States | 38.950000 | -77.079400 | 123.0 | -99.0 | 0 | n/a
+GHG58 | NW Baltimore | United States | 39.344400 | -76.686100 | 135.0 | -99.0 | 0 | n/a
+GHG59 | NE Baltimore | United States | 39.315400 | -76.583000 | 45.0 | -99.0 | 0 | n/a
+GHG60 | Jessup | United States | 39.172300 | -76.776500 | 67.1 | -99.0 | 0 | n/a
+GIC | Sierra de Gredos | Spain | 40.345700 | -5.175500 | 1436.0 | -99.0 | -1 | n/a
+GLF | Conejo | Mexico | 18.720000 | -95.630000 | 113.0 | -99.0 | 6 | n/a
+GMI | Mariana Islands | Guam | 13.386000 | 144.656000 | 0.0 | -99.0 | -10 | n/a
+GOZ | Dwejra Point, Gozo | Malta | 36.048000 | 14.889000 | 1.0 | -99.0 | -1 | n/a
+GPA | Gunn Point | Australia | -12.248800 | 131.045300 | 25.0 | -99.0 | -9 | n/a
+GRF | Greenland Firn | N/A | 71.310000 | -26.720000 | 2340.0 | -99.0 | 2 | n/a
+GRM | Garmisch-Partenkirchen | Germany | 47.480000 | 11.060000 | -10000.0 | -99.0 | -1 | n/a
+GSN | Gosan, Cheju Island | Republic of Korea | 33.280000 | 126.150000 | 72.0 | -99.0 | -8 | n/a
+GWN | Goodwin Creek, Mississippi | United States | 34.254700 | -89.872900 | 98.0 | -99.0 | 5 | n/a
+HAA | Molokai Island, Hawaii | United States | 21.230000 | -158.950000 | 3.0 | -99.0 | 10 | n/a
+HANLE | Hanle | India | 32.900000 | 78.900000 | -10000.0 | -99.0 | -99 | n/a
+HAT | Hateruma Island | Japan | 24.050000 | 123.800000 | 10.0 | -99.0 | -9 | n/a
+HBA | Halley Station, Antarctica | United Kingdom | -75.605000 | -26.210000 | 30.0 | -99.0 | 2 | n/a
+HDP | Hidden Peak (Snowbird), Utah | United States | 40.560000 | -111.650000 | 3351.0 | -99.0 | 7 | n/a
+HEI | Heidelberg | Germany | 49.417000 | 8.674000 | 116.0 | -99.0 | -1 | n/a
+HFM | Harvard Forest, Massachusetts | United States | 42.537800 | -72.171400 | 340.0 | -99.0 | 5 | n/a
+HIH | Hilo, Hawaii | United States | 19.717000 | -155.049000 | 11.0 | -99.0 | -10 | n/a
+HIL | Homer, Illinois | United States | 40.070000 | -87.910000 | 201.5 | -99.0 | 6 | n/a
+HJH | Murray Hillcrest Jr. Highschool, Utah | United States | 40.654600 | -111.887000 | 1315.0 | -99.0 | 7 | n/a
+HKO | Hong Kong | China | 22.220000 | 114.250000 | 0.0 | -99.0 | 0 | n/a
+HNP | Hanlan's Point, Ontario | Canada | 43.612100 | -79.386200 | 87.0 | -99.0 | 5 | n/a
+HNT | Huntsville, Alabama | United States | 34.678200 | -86.686400 | 202.0 | -99.0 | 0 | n/a
+HNX | Hanford, California | United States | 36.314000 | -119.632000 | 73.0 | -99.0 | 8 | n/a
+HOL | Holloman, NM | United States | 32.851600 | -106.105800 | 1241.0 | -99.0 | 0 | n/a
+HOW | Howland, Maine | United States | 42.200000 | -68.130000 | -10000.0 | -99.0 | 5 | n/a
+HPB | Hohenpeissenberg | Germany | 47.801100 | 11.024500 | 936.0 | -99.0 | -1 | n/a
+HST | Houston, Texas | United States | 29.720000 | -95.400000 | 19.0 | -99.0 | 6 | n/a
+HSU | Humboldt State University | United States | 41.058800 | -124.750000 | 0.0 | -99.0 | 8 | n/a
+HTM | Hyltemossa | Sweden | 56.097600 | 13.419000 | 115.0 | -99.0 | -1 | n/a
+HUA | Huancayo | Peru | -12.050000 | -75.320000 | 0.0 | -99.0 | -5 | n/a
+HUN | Hegyhatsal | Hungary | 46.950000 | 16.650000 | 248.0 | -99.0 | -1 | n/a
+HVA | Huntsville, Alabama | United States | 34.720000 | -86.640000 | 0.0 | -99.0 | -5 | n/a
+ICE | Storhofdi, Vestmannaeyjar | Iceland | 63.399800 | -20.288400 | 118.0 | -99.0 | 0 | n/a
+IGR | Igrim | Russia | 63.190300 | 64.415600 | 25.0 | -99.0 | -5 | n/a
+IN1 | INFLUX (Indiana Flux Experiment) Tower 1 | United States | 39.581000 | -86.421000 | 250.0 | -99.0 | 5 | n/a
+IN2 | INFLUX (Indiana Flux Experiment) Tower 2 | United States | 39.798000 | -86.018000 | 266.0 | -99.0 | 5 | n/a
+INU | Inuvik,Northwest Territories | Canada | 68.316700 | -133.533300 | 113.0 | -99.0 | 7 | n/a
+INX01 | INFLUX Site - tower 1 | United States | 39.580500 | -86.420700 | 256.3 | -99.0 | 5 | n/a
+INX02 | INFLUX Site - tower 2 | United States | 39.797800 | -86.018300 | 266.9 | -99.0 | 5 | n/a
+INX03 | INFLUX Site - tower 3 | United States | 39.783300 | -86.165100 | 226.0 | -99.0 | 5 | n/a
+INX04 | INFLUX Site - tower 4 | United States | 39.592600 | -86.109900 | 249.0 | -99.0 | 5 | n/a
+INX05 | INFLUX Site - tower 5 | United States | 39.894900 | -86.202800 | 251.0 | -99.0 | 5 | n/a
+INX06 | INFLUX Site - tower 6 | United States | 39.920100 | -86.028000 | 251.4 | -99.0 | 5 | n/a
+INX07 | INFLUX Site - tower 7 | United States | 39.773900 | -86.272400 | 241.0 | -99.0 | 5 | n/a
+INX08 | INFLUX Site - tower 8 | United States | 40.041100 | -85.973400 | 245.0 | -99.0 | 5 | n/a
+INX09 | INFLUX Site - tower 9 | United States | 39.862700 | -85.744800 | 277.0 | -99.0 | 5 | n/a
+INX10 | INFLUX Site - tower 10 | United States | 39.718100 | -86.143600 | 223.0 | -99.0 | 5 | n/a
+INX11 | INFLUX Site - tower 11 | United States | 39.840300 | -86.176300 | 214.0 | -99.0 | 5 | n/a
+INX12 | INFLUX Site - tower 12 | United States | 39.763700 | -86.040300 | 254.0 | -99.0 | 5 | n/a
+INX13 | INFLUX Site - tower 13 | United States | 39.717300 | -85.941700 | 248.0 | -99.0 | 5 | n/a
+IRV01 | Irvine, California | United States | 33.643700 | -117.844700 | 40.0 | -99.0 | 8 | n/a
+ISK | Iskrba | Slovenia | 45.560000 | 14.860000 | 0.0 | -99.0 | 0 | n/a
+ITN | Grifton, North Carolina | United States | 35.365000 | -77.393000 | 8.0 | -99.0 | 5 | n/a
+IZO | Izana, Tenerife, Canary Islands | Spain | 28.309000 | -16.499000 | 2372.9 | -99.0 | 0 | n/a
+JBN | Jubany Station, South Shetland-Antarctic Peninsula | Argentina | -62.230000 | -58.820000 | 15.0 | -99.0 | 4 | n/a
+JFJ | Jungfraujoch | Switzerland | 46.550000 | 7.987000 | 3570.0 | -99.0 | -1 | n/a
+JPL | Jet Propulsion Laboratory, California | United States | 34.202000 | -118.175000 | -10000.0 | -99.0 | -99 | n/a
+KAS | Kasprowy Wierch, High Tatra | Poland | 49.232500 | 19.981800 | 1989.0 | -99.0 | -1 | n/a
+KCMP | The University of Minnesota, Rosemount Research and Outreach Center (RROC) | United States | 44.688600 | -93.072800 | 290.0 | -99.0 | 6 | n/a
+KCO | Kaashidhoo | Republic of Maldives | 4.970000 | 73.470000 | 1.0 | -99.0 | -5 | n/a
+KDK | Kodiak, AK | United States | 57.000000 | -151.000000 | 0.0 | -99.0 | 0 | n/a
+KE | Kennecott, UT | United States | 40.538400 | -112.069600 | 1583.2 | -99.0 | 7 | n/a
+KEY | Key Biscayne, Florida | United States | 25.665400 | -80.158000 | 1.0 | -99.0 | 5 | n/a
+KLM | Kohler Mesa | United States | 39.990000 | -105.270000 | 1725.0 | -99.0 | 7 | n/a
+KPA | Kitt Peak, Arizona | United States | 32.000000 | -112.000000 | 2083.0 | -99.0 | 7 | n/a
+KPS | K'puszta, Keszcemet | Hungary | 46.970000 | 19.550000 | 0.0 | -99.0 | 0 | n/a
+KRS | Karasevoe | Russia | 58.245600 | 82.424400 | 50.0 | -99.0 | -6 | n/a
+KUM | Cape Kumukahi, Hawaii | United States | 19.520000 | -154.820000 | 3.0 | -99.0 | 10 | n/a
+KWJ | Kwajalein | Marshall Islands | 8.715000 | 167.723000 | 10.0 | -99.0 | 0 | n/a
+KZD | Sary Taukum | Kazakhstan | 44.083900 | 76.871200 | 595.0 | -99.0 | -6 | n/a
+KZM | Plateau Assy | Kazakhstan | 43.250000 | 77.880000 | 2519.0 | -99.0 | -6 | n/a
+LACCSUF | LA Megacities - Cal State Fullerton (CSUF) | United States | 33.880300 | -117.884500 | 73.0 | -99.0 | -8 | n/a
+LACGRH | LA Megacities - Granada Hills | United States | 34.284100 | -118.472700 | 391.0 | -99.0 | -8 | n/a
+LACUSC | LA Megacities - USC | United States | 34.021600 | -118.289100 | 54.0 | -99.0 | -8 | n/a
+LAN | Lin'an | China | 30.300000 | 119.730000 | 138.6 | -99.0 | -8 | n/a
+LAU | Lauder | New Zealand | -45.040000 | 169.680000 | 0.0 | -99.0 | -99 | n/a
+LDR | Lauder | New Zealand | -45.040000 | 169.680000 | 370.0 | -99.0 | -12 | n/a
+LEF | Park Falls, Wisconsin | United States | 45.945100 | -90.273200 | 472.0 | -99.0 | 6 | n/a
+LEW | Lewisburg, Pennsylvania | United States | 40.944700 | -76.878900 | 161.0 | -99.0 | 5 | n/a
+LFS | Longfengshan | China | 44.730000 | 127.600000 | 330.5 | -99.0 | -99 | n/a
+LIN | Lindenberg | Germany | 52.116600 | 14.122600 | 73.0 | -99.0 | 2 | n/a
+LJO | La Jolla, California | United States | 32.866900 | -117.257200 | 10.0 | -99.0 | 8 | n/a
+LLB | Lac La Biche, Alberta | Canada | 54.950000 | -112.450000 | 540.0 | -99.0 | 7 | n/a
+LLN | Lulin | Taiwan | 23.470000 | 120.870000 | 2862.0 | -99.0 | -8 | n/a
+LMP | Lampedusa | Italy | 35.520000 | 12.620000 | 45.0 | -99.0 | -2 | n/a
+LMU | La Muela | Spain | 41.594100 | -1.100300 | 571.0 | -99.0 | -1 | n/a
+LPO | Ile Grande | France | 48.803600 | -3.583900 | 10.0 | -99.0 | -1 | n/a
+LSN01 | California | United States | 34.021700 | -118.288900 | 267.0 | -99.0 | 8 | n/a
+LSN02 | California | United States | 34.021400 | -118.288600 | 267.0 | -99.0 | 8 | n/a
+LSN05 |  | United States | 33.873900 | -118.276700 | 0.0 | -99.0 | 0 | n/a
+LSN06 | Fullerton, California | United States | 33.880300 | -117.884500 | 73.0 | -99.0 | 8 | n/a
+LUT | Lutjewad | Netherlands | 53.403700 | 6.352900 | 1.0 | -99.0 | -1 | n/a
+MAA | Mawson Station, Antarctica | Australia | -67.617000 | 62.867000 | 32.0 | -99.0 | -4 | n/a
+MAD | Madera, CA | United States | 36.867200 | -120.010100 | 81.0 | -99.0 | 8 | n/a
+MAN |  Manacapuro | Brazil | -3.210000 | -60.000000 | 50.0 | -99.0 | 4 | n/a
+MBC | Mould Bay, Northwest Territories | Canada | 76.247000 | -119.353300 | 30.0 | -99.0 | 10 | n/a
+MBO | Mt. Bachelor Observatory | United States | 43.977500 | -121.686100 | 2731.0 | -99.0 | 8 | n/a
+MCM | McMurdo Station, Antarctica | United States | -77.830000 | 166.600000 | 11.0 | -99.0 | -12 | n/a
+MEX | High Altitude Global Climate Observation Center | Mexico | 18.984100 | -97.311000 | 4464.0 | -99.0 | 6 | n/a
+MHD | Mace Head, County Galway | Ireland | 53.326000 | -9.899000 | 5.0 | -99.0 | 0 | n/a
+MID | Sand Island, Midway | United States | 28.210000 | -177.380000 | 11.0 | -99.0 | 11 | n/a
+MKN | Mt. Kenya | Kenya | -0.062200 | 37.297200 | 3644.0 | -99.0 | -3 | n/a
+MKO | Mauna Kea, Hawaii | United States | 19.830000 | -155.470000 | 4220.0 | -99.0 | 10 | n/a
+MKW | Mikawa-Ichinomiya | Japan | 34.850000 | 137.430000 | 50.0 | -99.0 | -9 | n/a
+MLF | Mauna Loa, Hawaii | United States | 19.530000 | -155.580000 | 3397.0 | -99.0 | 10 | n/a
+MLO | Mauna Loa, Hawaii | United States | 19.536200 | -155.576300 | 3397.0 | -99.0 | 10 | n/a
+MMNTC | site C |  | 41.756800 | -76.326500 | 341.0 | -99.0 | 0 | n/a
+MMNTE | site E |  | 41.768500 | -75.680700 | 450.0 | -99.0 | 0 | n/a
+MMNTN | site N |  | 42.015900 | -76.433300 | 476.0 | -99.0 | 0 | n/a
+MMNTS | site S |  | 41.466200 | -76.418800 | 591.0 | -99.0 | 0 | n/a
+MMT | Missoula, MT | United States | 47.041100 | -113.986100 | 2418.0 | -99.0 | 0 | n/a
+MNM | Minamitorishima | Japan | 24.280000 | 153.980000 | 8.0 | -99.0 | -9 | n/a
+MOW | Moscow | Russia | 54.900000 | 35.500000 | 0.0 | -99.0 | -99 | n/a
+MPO | Marcapomacocha | Peru | -11.400000 | -76.320000 | 4500.0 | -99.0 | 5 | n/a
+MQA | Macquarie Island | Australia | -54.483000 | 158.967000 | 6.0 | -99.0 | -10 | n/a
+MRC | Marcellus Pennsylvania | United States | 41.700000 | -76.000000 | -10000.0 | -99.0 | -99 | n/a
+MSA | Montsec | Spain | 42.050000 | 0.730000 | 1571.0 | -99.0 | 0 | n/a
+MSC | Miscellaneous | N/A | 49.470700 | -112.940300 | 951.0 | -99.0 | 7 | n/a
+MSH | Mashpee, Massachusetts | United States | 41.656800 | -70.497300 | 32.3 | -99.0 | 5 | n/a
+MSN | Madison, Wisconsin | United States | 43.130000 | -89.330000 | 271.0 | -99.0 | 6 | n/a
+MSY | Montseny | Spain | 41.780000 | 2.360000 | 700.0 | -99.0 | 0 | n/a
+MUT | Murray Satellite | United  States | 40.654600 | -111.887000 | 1315.0 | -99.0 | 7 | n/a
+MVY | Marthas Vineyard, Massachusetts | United States | 41.325000 | -70.566700 | 0.0 | -99.0 | 5 | n/a
+MWO | Mt. Wilson Observatory | United States | 34.224600 | -118.058600 | 1728.0 | -99.0 | 8 | n/a
+NAG | Nagarkot | Nepal | 27.720000 | 85.520000 | 0.0 | -99.0 | 0 | n/a
+NAK | Nome, Alaska | United States | 64.300000 | -165.260000 | 0.0 | -99.0 | 0 | n/a
+NAT | Farol De Mae Luiza Lighthouse | Brazil | -5.795200 | -35.185300 | 50.0 | -99.0 | 3 | n/a
+NHA | Worcester, Massachusetts | United States | 42.950000 | -70.630000 | 0.0 | -99.0 | 5 | n/a
+NMB | Gobabeb | Namibia | -23.580000 | 15.030000 | 456.0 | -99.0 | -1 | n/a
+NOR | Norunda | Sweden | 60.086400 | 17.479500 | 45.9 | -99.0 | -1 | n/a
+NOY | Noyabrsk | Russia | 63.429200 | 75.780000 | 100.0 | -99.0 | -5 | n/a
+NRI | Narragansett, Rhode Island | United States | 41.490000 | -71.420000 | 21.0 | -99.0 | 0 | n/a
+NRT | Narita Airport | Japan | 35.765300 | 140.385600 | 43.0 | -99.0 | -9 | n/a
+NWF | Niwot Ridge Forest, Colorado | United States | 40.030000 | -105.550000 | 3050.0 | -99.0 | 7 | n/a
+NWR | Niwot Ridge, Colorado | United States | 40.053100 | -105.586400 | 3523.0 | -99.0 | 7 | n/a
+NZL | Kaitorete Spit | New Zealand | -43.830000 | 172.630000 | 3.0 | -99.0 | -12 | n/a
+OBN | Obninsk | Russia | 55.110000 | 36.600000 | 183.0 | -99.0 | -3 | n/a
+OBS | Old Black Spruce, Saskatchewan | Canada | 53.987000 | -105.118000 | 629.0 | -99.0 | 6 | n/a
+OFR | Fir, Oregon | United States | 44.646500 | -123.551400 | 263.0 | -99.0 | 8 | n/a
+OHP | Haute Provence | France | 43.916700 | 5.750000 | 580.0 | -99.0 | -1 | n/a
+OIL | Oglesby, Illinois | United States | 41.280000 | -88.940000 | 192.6 | -99.0 | 6 | n/a
+OLI | Oliktok Point, Alaska | United  States | 70.495300 | -149.886900 | 2.0 | -99.0 | 9 | n/a
+OMP | Marys Peak, Oregon | United States | 44.504300 | -123.553000 | 1249.0 | -99.0 | 8 | n/a
+OMT | Metolius, Oregon | United States | 44.452400 | -121.557200 | 1255.0 | -99.0 | 8 | n/a
+ONG | Burns, Oregon | United States | 43.471200 | -119.691000 | 1398.0 | -99.0 | 8 | n/a
+OPW | Olympic Peninsula, Washington | United States | 48.299700 | -124.627600 | 486.0 | -99.0 | 8 | n/a
+ORL | Orleans | France | 47.830000 | 2.500000 | 175.0 | -99.0 | -1 | n/a
+ORT | Oak Ridge, Tennesee | United States | 35.960000 | -84.290000 | 334.0 | -99.0 | 5 | n/a
+OSI | Silverton, Oregon | United States | 44.998600 | -122.695000 | 351.0 | -99.0 | 8 | n/a
+OTA | Otway, Victoria | Australia | -38.522000 | 142.817000 | 40.0 | -99.0 | -10 | n/a
+OWA | Walton, Oregon | United States | 44.066400 | -123.629000 | 715.0 | -99.0 | 8 | n/a
+OXK | Ochsenkopf | Germany | 50.030100 | 11.808400 | 1022.0 | -99.0 | -1 | n/a
+OYQ | Yaquina Head, Oregon | United States | 44.675000 | -124.067000 | 116.0 | -99.0 | 8 | n/a
+PAL | Pallas-Sammaltunturi, GAW Station | Finland | 67.973300 | 24.115700 | 565.0 | -99.0 | -2 | n/a
+PCO | Pico, Azores | Portugal | 38.470000 | -28.400000 | 2225.0 | -99.0 | 1 | n/a
+PDM | Pic Du Midi | France | 42.937200 | 0.141100 | 2877.0 | -99.0 | -1 | n/a
+PFA | Poker Flat, Alaska | United States | 65.070000 | -147.290000 | 210.0 | -99.0 | 9 | n/a
+POCN05 | Pacific Ocean (5 N) | N/A | 5.000000 | -151.000000 | 10.0 | -99.0 | -99 | n/a
+POCN10 | Pacific Ocean (10 N) | N/A | 10.000000 | -149.000000 | 10.0 | -99.0 | -99 | n/a
+POCN15 | Pacific Ocean (15 N) | N/A | 15.000000 | -145.000000 | 10.0 | -99.0 | -99 | n/a
+POCN20 | Pacific Ocean (20 N) | N/A | 20.000000 | -141.000000 | 10.0 | -99.0 | -99 | n/a
+POCN25 | Pacific Ocean (25 N) | N/A | 25.000000 | -139.000000 | 10.0 | -99.0 | -99 | n/a
+POCN30 | Pacific Ocean (30 N) | N/A | 30.000000 | -135.000000 | 10.0 | -99.0 | -99 | n/a
+POCN35 | Pacific Ocean (35 N) | N/A | 35.000000 | -137.000000 | 10.0 | -99.0 | -99 | n/a
+POCN40 | Pacific Ocean (40 N) | N/A | 40.000000 | -136.000000 | 10.0 | -99.0 | -99 | n/a
+POCN45 | Pacific Ocean (45 N) | N/A | 45.000000 | -131.000000 | 10.0 | -99.0 | -99 | n/a
+POCS05 | Pacific Ocean (5 S) | N/A | -5.000000 | -159.000000 | 10.0 | -99.0 | -99 | n/a
+POCS10 | Pacific Ocean (10 S) | N/A | -10.000000 | -161.000000 | 10.0 | -99.0 | -99 | n/a
+POCS15 | Pacific Ocean (15 S) | N/A | -15.000000 | -171.000000 | 10.0 | -99.0 | -99 | n/a
+POCS20 | Pacific Ocean (20 S) | N/A | -20.000000 | -174.000000 | 10.0 | -99.0 | -99 | n/a
+POCS25 | Pacific Ocean (25 S) | N/A | -25.000000 | -171.000000 | 10.0 | -99.0 | -99 | n/a
+POCS30 | Pacific Ocean (30 S) | N/A | -30.000000 | -176.000000 | 10.0 | -99.0 | -99 | n/a
+POCS35 | Pacific Ocean (35 S) | N/A | -35.000000 | 180.000000 | 10.0 | -99.0 | -99 | n/a
+POC000 | Pacific Ocean (0 N) | N/A | 0.000000 | -155.000000 | 10.0 | -99.0 | -99 | n/a
+POK | Poker Flat, Alaska | United States | 65.070000 | -147.290000 | 210.0 | -99.0 | 9 | n/a
+PRS | Plateau Rosa Station | Italy | 45.930000 | 7.700000 | 3480.0 | -99.0 | -1 | n/a
+PSA | Palmer Station, Antarctica | United States | -64.920000 | -64.000000 | 10.0 | -99.0 | 3 | n/a
+PSM | Point Six Mountain, Montana | United States | 47.030000 | -113.980000 | 2462.0 | -99.0 | 7 | n/a
+PSU | Penn State, Pennsylvania | United States | 40.720100 | -77.930900 | 376.0 | -99.0 | 5 | n/a
+PTA | Point Arena, California | United States | 38.954600 | -123.740800 | 17.0 | -99.0 | 8 | n/a
+PTH | Perth | Australia | -31.916700 | 115.966700 | 5.0 | -99.0 | 8 | n/a
+PUJ | Puijo | Finland | 62.900000 | 27.650000 | 87.0 | -99.0 | -2 | n/a
+PUY | Puy de Dome | France | 45.771900 | 2.965800 | 1465.0 | -99.0 | -1 | n/a
+PV | Palos Verdes Peninsula, CA | United States | 33.744300 | -118.349100 | 320.0 | -99.0 | 8 | n/a
+RAL | Raleigh, North Carolina | United States | 35.730000 | -78.680000 | 124.0 | -99.0 | 5 | n/a
+RBA | Roof Butte, Arizona | United States | 36.461400 | -109.095600 | 2982.0 | -99.0 | 7 | n/a
+RBA-B | Rio Branco | Brazil | -9.360000 | -67.600000 | -10000.0 | -99.0 | 4 | n/a
+RCE | Centerville, Iowa | United States | 40.791900 | -92.877500 | 286.0 | -99.0 | 6 | n/a
+RGL | Ridge Hill | United Kingdom | 51.997600 | -2.540000 | 204.0 | -99.0 | 0 | n/a
+RGV | Galesville, Wisconsin | United States | 44.091000 | -91.338200 | 251.0 | -99.0 | 6 | n/a
+RIA | Rowley, Iowa | United States | 42.400000 | -91.840000 | 298.7 | -99.0 | 6 | n/a
+RK1 | Kermadec Island | Raoul Island  | -29.200000 | -177.900000 | 2.0 | -99.0 | -99 | n/a
+RKW | Kewanee, Illinois | United States | 41.276200 | -89.972400 | 247.0 | -99.0 | 6 | n/a
+RL3 | Research Lab 3 | United States | 40.020000 | -105.170000 | 1628.0 | -99.0 | 7 | n/a
+RMM | Mead, Nebraska | United States | 41.138600 | -96.455900 | 358.0 | -99.0 | 6 | n/a
+RMT | Rosemount, Minnesota | United States | 44.688600 | -93.072800 | 0.0 | -99.0 | 0 | n/a
+RPB | Ragged Point | Barbados | 13.165000 | -59.432000 | 15.0 | -99.0 | 4 | n/a
+RPK | Salt Lake Center for Science Education in Rose Park | United  States | 40.794400 | -111.931900 | 1288.0 | -99.0 | 7 | n/a
+RRL | Round Lake, Minnesota | United States | 43.530000 | -95.410000 | 469.0 | -99.0 | 6 | n/a
+RSL | Resolute | Canada | 74.716700 | -94.983300 | 64.0 | -99.0 | 6 | n/a
+RTA | Rarotonga | Cook Islands | -21.250000 | -159.830000 | 3.0 | -99.0 | 10 | n/a
+RYO | Ryori | Japan | 39.030000 | 141.820000 | 260.0 | -99.0 | -9 | n/a
+SAN | Santarem | Brazil | -2.850000 | -54.950000 | 78.0 | -99.0 | 4 | n/a
+SBC | San Bernardino College | United States | 34.085500 | -117.313000 | 0.0 | -99.0 | -8 | n/a
+SBR | Salvador | Brazil | -12.770000 | -38.170000 | 0.0 | -99.0 | 0 | n/a
+SCA | Charleston, South Carolina | United States | 32.770000 | -79.550000 | 0.0 | -99.0 | 5 | n/a
+SCE | San Cristobal | Ecuador | -0.904100 | -89.614300 | 8.0 | -99.0 | -99 | n/a
+SCR | San Jose | Costa Rica | 9.980000 | -84.210000 | 899.0 | -99.0 | 0 | n/a
+SCSN03 | South China Sea (3 N) | N/A | 3.000000 | 105.000000 | 15.0 | -99.0 | -99 | n/a
+SCSN06 | South China Sea (6 N) | N/A | 6.000000 | 107.000000 | 15.0 | -99.0 | -99 | n/a
+SCSN09 | South China Sea (9 N) | N/A | 9.000000 | 109.000000 | 15.0 | -99.0 | -99 | n/a
+SCSN12 | South China Sea (12 N) | N/A | 12.000000 | 111.000000 | 15.0 | -99.0 | -99 | n/a
+SCSN15 | South China Sea (15 N) | N/A | 15.000000 | 113.000000 | 15.0 | -99.0 | -99 | n/a
+SCSN18 | South China Sea (18 N) | N/A | 18.000000 | 113.500000 | 15.0 | -99.0 | -99 | n/a
+SCSN21 | South China Sea (21 N) | N/A | 21.000000 | 114.000000 | 15.0 | -99.0 | -99 | n/a
+SCT | Beech Island, South Carolina | United States | 33.405700 | -81.833400 | 115.2 | -99.0 | 5 | n/a
+SDZ | Shangdianzi | Peoples Republic of China | 40.650000 | 117.117000 | 293.0 | -99.0 | -8 | n/a
+SEA | Seattle, Washington | United States | 47.680000 | -122.250000 | 20.0 | -99.0 | 8 | n/a
+SEL | Seoul | Republic of Korea | 37.571400 | 126.965800 | 85.8 | -99.0 | 0 | n/a
+SEY | Mahe Island | Seychelles | -4.682400 | 55.532500 | 2.0 | -99.0 | -4 | n/a
+SGC | Sierra de Grazalema | Spain | 36.695600 | -5.397500 | 850.0 | -99.0 | -1 | n/a
+SGI | Bird Island, South Georgia | United Kingdom | -54.000000 | -38.050000 | 30.0 | -99.0 | 3 | n/a
+SGP | Southern Great Plains, Oklahoma | United States | 36.607000 | -97.489000 | 314.0 | -99.0 | 6 | n/a
+SGP374 | Southern Great Plains | United States | 36.800000 | -97.500000 | 374.0 | -99.0 | 6 | n/a
+SHM | Shemya Island, Alaska | United States | 52.711200 | 174.126000 | 23.0 | -99.0 | 10 | n/a
+SIO | La Jolla, California | United States | 32.830000 | -117.270000 | 14.0 | -99.0 | 8 | n/a
+SIS | Shetland Islands | Scotland | 60.089000 | -1.255000 | 30.0 | -99.0 | 0 | n/a
+SLC | Salt Lake City | United States | 40.770000 | -111.970000 | 1288.0 | -99.0 | 7 | n/a
+SMO | Tutuila | American Samoa | -14.247400 | -170.564400 | 42.0 | -99.0 | 11 | n/a
+SMR | Hyytiala | Finland | 61.847400 | 24.294800 | 181.0 | -99.0 | -2 | n/a
+SNBCC | Carritas Communication | United States | 34.064200 | -117.583200 | 288.0 | -99.0 | 0 | n/a
+SNDA | Livermore |  | 37.674100 | -121.708000 | 198.0 | -99.0 | 8 | n/a
+SNDGS | San Diego  | United States | 32.866900 | -117.257000 | 0.0 | -99.0 | 10 | n/a
+SNP | Shenandoah National Park | United States | 38.617000 | -78.350000 | 1008.0 | -99.0 | 5 | n/a
+SNS | Sierra Nevada | Spain | 37.096000 | -3.387000 | 2501.0 | -99.0 | -1 | n/a
+SPF | Antarctic Firn Air | United States | -73.865800 | 163.687000 | 1623.0 | -99.0 | -12 | n/a
+SPI | St. Paul Island, Alaska | United States | 57.090000 | -170.130000 | 8.0 | -99.0 | -9 | n/a
+SPL | Storm Peak Laboratory (Desert Research Institute) | United States | 40.450000 | -106.730000 | 3210.0 | -99.0 | 7 | n/a
+SPO | South Pole, Antarctica | United States | -89.980000 | -24.800000 | 2810.0 | -99.0 | -12 | n/a
+SSC | Sierra de Segura | Spain | 38.302700 | -2.589800 | 1349.0 | -99.0 | -1 | n/a
+SSL | Schauinsland, Baden-Wuerttemberg | Germany | 47.920000 | 7.920000 | 1205.0 | -99.0 | -1 | n/a
+STA | Suita | Japan | 34.820000 | 135.520000 | 63.0 | -99.0 | -9 | n/a
+STB | Sutter Buttes, CA | United States | 39.205500 | -121.820500 | 0.0 | -99.0 | 0 | n/a
+STC | Ocean Station C | United States | 54.000000 | -35.000000 | 6.0 | -99.0 | -99 | n/a
+STE | Sterling, Virginia | United States | 38.980000 | -77.470000 | 85.0 | -99.0 | 5 | n/a
+STM | Ocean Station M | Norway | 66.000000 | 2.000000 | 0.0 | -99.0 | 0 | n/a
+STP | Ocean Station P | Canada | 50.000000 | -145.000000 | 7.0 | -99.0 | 10 | n/a
+STR | Sutro Tower, San Francisco, California | United States | 37.755300 | -122.451700 | 254.0 | -99.0 | 8 | n/a
+SUG | Sugar House, UT | United States | 40.739700 | -111.858000 | 1328.0 | -99.0 | 7 | n/a
+SUM | Summit | Greenland | 72.596200 | -38.422000 | 3209.5 | -99.0 | 2 | n/a
+SUV | Suva | Fiji | -18.000000 | 178.000000 | 0.0 | -99.0 | -99 | n/a
+SVA | Sterling, Virginia | United States | 38.980000 | -77.470000 | 85.0 | -99.0 | 5 | n/a
+SVL |  | United States | 37.396200 | -121.984600 | 0.0 | -99.0 | 0 | n/a
+SVV | Savvushka | Russia | 51.325000 | 82.127800 | 400.0 | -99.0 | -6 | n/a
+SXF | Sioux Falls, South Dakota | United States | 43.734000 | -96.623300 | 473.0 | -99.0 | 6 | n/a
+SYO | Syowa Station, Antarctica | Japan | -69.012500 | 39.590000 | 14.0 | -99.0 | -3 | n/a
+TAB | Tabatinga | Brazil | -5.950000 | -70.070000 | -10000.0 | -99.0 | 4 | n/a
+TAC | Tacolneston | United Kingdom | 52.517700 | 1.138600 | 56.0 | -99.0 | 0 | n/a
+TAL | Tallahassee, Florida | United States | 30.430000 | -84.330000 | 53.0 | -99.0 | 5 | n/a
+TAM | Tamanrasset | Algeria | 22.780000 | 5.520000 | 1377.0 | -99.0 | -1 | n/a
+TAO | Toronto Atmospheric Observatory, University of Toronto, Ontario | Canada | 43.660000 | -79.400000 | 100.0 | -99.0 | 5 | n/a
+TAP | Tae-ahn Peninsula | Republic of Korea | 36.737600 | 126.132800 | 16.0 | -99.0 | -9 | n/a
+TBL | Table Mountain | United States | 40.125000 | -105.236800 | 1689.0 | -99.0 | 7 | n/a
+TFA | Tampa, FL | United States | 27.850000 | -83.833300 | 0.0 | -99.0 | 0 | n/a
+TGC | Sinton, Texas | United States | 27.730000 | -96.860000 | 0.0 | -99.0 | 6 | n/a
+THD | Trinidad Head, California | United States | 41.054100 | -124.151000 | 107.0 | -99.0 | 8 | n/a
+TIK | Hydrometeorological Observatory of Tiksi | Russia | 71.596500 | 128.888700 | 19.0 | -99.0 | -99 | n/a
+TKB | Tsukuba | Japan | 36.050000 | 140.130000 | 25.0 | -99.0 | -9 | n/a
+TKY | Takayama | Japan | 36.130000 | 137.420000 | 1420.0 | -99.0 | -9 | n/a
+TLH | Tallahassee, Florida | United States | 30.380000 | -84.370000 | 18.0 | -99.0 | 5 | n/a
+TMPST | Arizona | United States | 33.417200 | -111.934700 | 1082.0 | -99.0 | 7 | n/a
+TNK | Tank Air | United States | 39.991000 | -105.260700 | 1628.0 | -99.0 | 7 | n/a
+TOT | Toronto, Ontario | Canada | 43.783300 | -79.466700 | 198.0 | -99.0 | 4 | n/a
+TPD | Turkey Point, Ontario | Canada | 42.616700 | -80.550000 | 231.0 | -99.0 | 5 | n/a
+TRA | Tranquility, California | United States | 36.634300 | -120.382000 | 0.0 | -99.0 | 0 | n/a
+TRM | Tromelin Island | France | -15.880000 | 54.520000 | 20.0 | -99.0 | -4 | n/a
+TRN | Trainou | France | 47.964700 | 2.112500 | 131.0 | -99.0 | -1 | n/a
+TRSTD | Trinidad Head, California | United States | 41.054200 | -124.150600 | 44.0 | -99.0 | 8 | n/a
+TSB | Tuscan Buttes, CA | United States | 40.262200 | -122.092800 | 0.0 | -99.0 | 0 | n/a
+TST | Boulder, Colorado | United States | 40.020000 | -105.170000 | 1628.0 | -99.0 | 7 | n/a
+TTA | Tall Tower Angus | United Kingdom | 56.555100 | -2.985800 | 400.0 | -99.0 | 0 | n/a
+TUN | Tundra Lab, Niwot Ridge, Colorado | United States | 40.054200 | -105.588900 | 3538.0 | -99.0 | 0 | n/a
+UGR | University of Granada | Spain | 37.164000 | -3.605000 | 680.0 | -99.0 | 0 | n/a
+ULB | Ulaanbaatar | Mongolia | 47.400000 | 106.000000 | 1350.0 | -99.0 | -8 | n/a
+UOU | University of Utah | United  States | 40.763400 | -111.848400 | 1427.0 | -99.0 | 7 | n/a
+USH | Ushuaia | Argentina | -54.848400 | -68.310600 | 12.0 | -99.0 | 4 | n/a
+UTA | Wendover, Utah | United States | 39.901800 | -113.718100 | 1327.0 | -99.0 | 7 | n/a
+UUM | Ulaan Uul | Mongolia | 44.451600 | 111.095600 | 1007.0 | -99.0 | -8 | n/a
+VAA | Cartersville, Georgia | United States | 32.910000 | -79.360000 | 239.9 | -99.0 | 5 | n/a
+VAC | Valderejo | Spain | 42.878600 | -3.213900 | 1102.0 | -99.0 | -1 | n/a
+VGN | Vaganovo | Russia | 54.497200 | 62.324700 | 200.0 | -99.0 | -3 | n/a
+WAI | Wallops Island, Virginia | United States | 37.860000 | -75.510000 | 13.0 | -99.0 | 5 | n/a
+WAO | Weybourne, Norfolk | United Kingdom | 52.950200 | 1.121900 | 20.0 | -99.0 | 0 | n/a
+WBI | West Branch, Iowa | United States | 41.724800 | -91.352900 | 241.7 | -99.0 | 6 | n/a
+WES | Westerland | Germany | 55.000000 | 8.000000 | 8.0 | -99.0 | 0 | n/a
+WGC | Walnut Grove, California | United States | 38.265000 | -121.491100 | 0.0 | -99.0 | 8 | n/a
+WHI | Whistler | Canada | 50.059300 | -122.957600 | 2182.0 | -99.0 | 0 | n/a
+WIS | Weizmann Institute of Science at the Arava Institute, Ketura | Israel | 29.964600 | 35.060500 | 151.0 | -99.0 | -2 | n/a
+WKT | Moody, Texas | United States | 31.314900 | -97.326900 | 251.0 | -99.0 | 6 | n/a
+WLG | Mt. Waliguan | Peoples Republic of China | 36.287900 | 100.896400 | 3810.0 | -99.0 | -8 | n/a
+WOL | Wollongong | Australia | -34.406000 | 150.879000 | -10000.0 | -99.0 | -10 | n/a
+WPCN05 | Western Pacific Cruise (5 N) | N/A | 5.000000 | 149.100000 | 0.0 | -99.0 | -99 | n/a
+WPCN10 | Western Pacific Cruise (10 N) | N/A | 10.000000 | 148.000000 | 0.0 | -99.0 | -99 | n/a
+WPCN15 | Western Pacific Cruise (15 N) | N/A | 15.000000 | 145.000000 | 0.0 | -99.0 | -99 | n/a
+WPCN20 | Western Pacific Cruise (20 N) | N/A | 20.000000 | 142.000000 | 0.0 | -99.0 | -99 | n/a
+WPCN25 | Western Pacific Cruise (25 N) | N/A | 25.000000 | 140.000000 | 0.0 | -99.0 | -99 | n/a
+WPCN30 | Western Pacific Cruise (30 N) | N/A | 30.000000 | 136.800000 | 0.0 | -99.0 | -99 | n/a
+WPCS05 | Western Pacific Cruise (5 S) | N/A | -5.000000 | 153.700000 | 0.0 | -99.0 | -99 | n/a
+WPCS10 | Western Pacific Cruise (10 S) | N/A | -10.000000 | 156.800000 | 0.0 | -99.0 | -99 | n/a
+WPCS15 | Western Pacific Cruise (15 S) | N/A | -15.000000 | 159.300000 | 0.0 | -99.0 | -99 | n/a
+WPCS20 | Western Pacific Cruise (20 S) | N/A | -20.000000 | 161.100000 | 0.0 | -99.0 | -99 | n/a
+WPCS25 | Western Pacific Cruise (25 S) | N/A | -25.000000 | 165.500000 | 0.0 | -99.0 | -99 | n/a
+WPCS30 | Western Pacific Cruise (30 S) | N/A | -30.000000 | 168.000000 | 0.0 | -99.0 | -99 | n/a
+WPON05 | Western Pacific Ocean | N/A | 5.000000 | 146.000000 | -10000.0 | -99.0 | -99 | n/a
+WPON10 | Western Pacific Ocean | N/A | 10.000000 | 146.000000 | -10000.0 | -99.0 | -99 | n/a
+WPON15 | Western Pacific Ocean | N/A | 15.000000 | 146.000000 | -10000.0 | -99.0 | -99 | n/a
+WPON20 | Western Pacific Ocean | N/A | 20.000000 | 146.000000 | -10000.0 | -99.0 | -99 | n/a
+WPON25 | Western Pacific Ocean | N/A | 25.000000 | 146.000000 | -10000.0 | -99.0 | -99 | n/a
+WPON30 | Western Pacific Ocean | N/A | 30.000000 | 146.000000 | -10000.0 | -99.0 | -99 | n/a
+WPOS05 | Western Pacific Ocean | N/A | -5.000000 | 146.000000 | -10000.0 | -99.0 | -99 | n/a
+WPOS10 | Western Pacific Ocean | N/A | -10.000000 | 146.000000 | -10000.0 | -99.0 | -99 | n/a
+WPOS15 | Western Pacific Ocean | N/A | -15.000000 | 146.000000 | -10000.0 | -99.0 | -99 | n/a
+WPOS20 | Western Pacific Ocean | N/A | -20.000000 | 146.000000 | -10000.0 | -99.0 | -99 | n/a
+WPOS25 | Western Pacific Ocean | N/A | -25.000000 | 146.000000 | -10000.0 | -99.0 | -99 | n/a
+WSA | Sable Island, Nova Scotia | Canada | 43.933300 | -60.016700 | 5.0 | -99.0 | 4 | n/a
+WSD | Wessington, South Dakota |  | 44.050200 | -98.588000 | 592.0 | -99.0 | 0 | n/a
+WVR | Weaverville, California | United States | 40.730900 | -122.941900 | 613.0 | -99.0 | 8 | n/a
+XGL | Shangri-La | China | 28.010000 | 99.440000 | 3580.0 | -99.0 | -8 | n/a
+XIC | Sierra de Xures | Spain | 41.990900 | -8.017600 | 890.0 | -99.0 | -1 | n/a
+XM | Rose Park, UT | United States | 40.794100 | -111.931200 | 1288.4 | -99.0 | 7 | n/a
+XTL | East Trout Lake, Saskatchewan | Canada | 54.353600 | -104.986700 | 493.0 | -99.0 | 6 | n/a
+YAK | Yakutsk | Russia | 62.088600 | 129.355800 | 210.0 | -99.0 | -9 | n/a
+YON | Yonagunijima | Japan | 24.470000 | 123.020000 | 30.0 | -99.0 | -9 | n/a
+ZEP | Ny-Alesund, Svalbard | Norway and Sweden | 78.906700 | 11.888300 | 474.0 | -99.0 | -1 | n/a
+ZOT | Zotino, Siberia | Russia | 60.750000 | 89.380000 | 101.0 | -99.0 | -7 | n/a
+ZUG | Zugspitze Station | Germany | 47.420000 | 10.980000 | 2962.0 | -99.0 | -1 | n/a

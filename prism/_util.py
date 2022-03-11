@@ -1,8 +1,10 @@
 import typing as typ
 import matplotlib.pyplot as plt
+import numpy as np
+import scipy.stats as stats
 
 
-def postprocess(data, decomposed_result, p, period):
+def postprocess_statsmodels(data, decomposed_result, p, period):
     times, components, residuals = dict(t=data.index.values, t_mod=data.index.values % period), \
                                    dict(seasonal=decomposed_result.seasonal.reshape(-1, p).transpose(),
                                         trend=decomposed_result.trend,
@@ -13,7 +15,53 @@ def postprocess(data, decomposed_result, p, period):
     return times, components, residuals
 
 
-def summary_plot(data, times, components, residuals, samples_per_period,  fig: typ.Optional[int] = None, sczorder=4):
+def postprocess_ccgfilt(filt, seasonal_forecast_times, forecast_times, confidence_lvl: float = 0.01):
+    import gml_packages.ccgrcv.ccg_filter as ccgfilt
+
+    seasonal_comp = filt.getHarmonicValue(seasonal_forecast_times)
+    seasonal_fit = filt.getHarmonicValue(filt.xp)
+    trend_comp = filt.getPolyValue(forecast_times)
+    trend_fit = filt.getPolyValue(filt.xp)
+    sum = filt.getHarmonicValue(forecast_times) + trend_comp
+    times = dict(t=forecast_times, t_mod=seasonal_forecast_times)
+    components = dict(seasonal=seasonal_comp, trend=trend_comp, sum=sum)
+    residuals = dict(seasonal=filt.yp - trend_fit,
+                     trend=filt.yp - seasonal_fit,
+                     sum=filt.resid)
+    # Confidence intervals:
+    gram = filt.gram
+    phi_sum = np.stack(
+        [ccgfilt.fitFunc(e, forecast_times - filt.timezero, numpoly=filt.numpoly, numharm=filt.numharm) for e in
+         np.eye(filt.numpm)],
+        axis=-1)
+    phi_seas = np.stack(
+        [ccgfilt.harmonics(e, seasonal_forecast_times, numpoly=filt.numpoly, numharm=filt.numharm) for e in
+         np.eye(filt.numpm)],
+        axis=-1)
+    phi_seas = phi_seas[:, filt.numpoly:]
+    s2 = filt.chisq
+    quantile = stats.t.ppf(q=confidence_lvl / 2, df=filt.np - filt.numpm)
+    pm = np.r_[-1, 1]
+    p_min, p_max = filt.params + pm[:, None] * quantile * np.sqrt(s2 * np.diag(gram)[None, :])
+    seas_min, seas_max = seasonal_comp + pm[:, None] * quantile * np.sqrt(s2 * (1 +
+                                                                                np.sum(phi_seas *
+                                                                                       (phi_seas @ gram[filt.numpoly:,
+                                                                                                   filt.numpoly:]),
+                                                                                       axis=-1))[None, :])
+    trend_min, trend_max = trend_comp + pm[:, None] * quantile * np.sqrt(s2 * (1 +
+                                                                               np.sum(phi_sum[:, :filt.numpoly] *
+                                                                                      (phi_sum[:, :filt.numpoly] @
+                                                                                       gram[:filt.numpoly,
+                                                                                       :filt.numpoly]),
+                                                                                      axis=-1))[None, :])
+    sum_min, sum_max = sum + pm[:, None] * quantile * np.sqrt(
+        s2 * (1 + np.sum(phi_sum * (phi_sum @ gram), axis=-1))[None, :])
+    min_values = dict(coeffs=p_min, seasonal=seas_min, trend=trend_min, sum=sum_min)
+    max_values = dict(coeffs=p_max, seasonal=seas_max, trend=trend_max, sum=sum_max)
+    return times, components, residuals, min_values, max_values
+
+
+def summary_plot(data, times, components, residuals, samples_per_period, fig: typ.Optional[int] = None, sczorder=4):
     r"""
     Summary plot of the seasonal-trend decomposition.
 

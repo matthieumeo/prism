@@ -1,6 +1,7 @@
 CHANGES
 =======
 
+* Multiple changes: bug fixes, API refactoring, new io data routines, convenience routine for soa models
 * Update in the documentation
 * Updated doc
 
