@@ -29,7 +29,7 @@ def get_unc_filename(options, bstype, zone, crvtype):
 		uncfile = "/".join([options.bsdir, bstype, options.outdir, uncfile])
 
 	if options.verbose:
-		print "uncertainty file is ", uncfile
+		print("uncertainty file is ", uncfile)
 
 	return uncfile
 
@@ -44,7 +44,7 @@ def get_data_filename(options, zone, crvtype):
 
 	datafile = "/".join([options.bsdir, datafile])
 	if options.verbose:
-		print "data file is ", uncfile
+		print("data file is ", uncfile)
 
 	return datafile
 
@@ -71,7 +71,7 @@ for zone in zones:
 
 		for btype in bootstrap_types:
 			if options.verbose:
-				print "Checking for bootstrap type", btype
+				print("Checking for bootstrap type", btype)
 
 			if os.path.exists(options.bsdir + "/" + btype):
 
@@ -79,12 +79,12 @@ for zone in zones:
 
 				uncfile = get_unc_filename(options, btype, zone, crvtype)
 				if options.verbose:
-					print "Uncertainty file is", uncfile
+					print("Uncertainty file is", uncfile)
 
 				if os.path.exists(uncfile):
 					data = numpy.loadtxt(uncfile)
 				else:
-					print >> sys.stderr, "!!! Zonal uncertainty file not found: %s." % uncfile
+					print("!!! Zonal uncertainty file not found: %s." % uncfile, file=sys.stderr)
 					continue
 
 				# uncertainty values are in 3rd column. The [2] makes this into a column vector
@@ -98,7 +98,7 @@ for zone in zones:
 
 		if unc is None:
 			if options.verbose:
-				print "No bootstrap uncertainty files found."
+				print("No bootstrap uncertainty files found.")
 				continue
 
 		unc = numpy.sqrt(unc)
@@ -113,7 +113,7 @@ for zone in zones:
 			uncfile = "zone_" + zone + ".mbl." + crvtype + ".unc." + options.gas.lower()
 		uncfile = "/".join([options.bsdir, uncfile])
 #		if options.verbose:
-		print "Writing results to", uncfile
+		print("Writing results to", uncfile)
 
 		numpy.savetxt(uncfile, data, fmt="%14.8f %10.3f %10.3f")
 

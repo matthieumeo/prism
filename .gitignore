@@ -128,8 +128,9 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
+data/*
 data/cache/*
-data/reference_ch4/*
-data/reference_co2/*
+data/mbl/reference_ch4/*
+data/mbl/reference_co2/*
 data/finances.csv
 examples/finances.py

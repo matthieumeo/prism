@@ -956,7 +956,7 @@ class dei:
 			ydiff = ysc[w] - mbl_site[w]      # smooth curve - latitude gradient value at latitude of site
 
 			# fit function to time series of smooth - mbl differences
-			diff_filt = ccg_filter.ccgFilter(xdiff, ydiff, 80, 667, 7, 1, 2, self.initparam['sync1'])
+			diff_filt = ccg_filter.ccgFilter(xdiff, ydiff, 667, 667, 7, 1, 2, self.initparam['sync1'])
 			d_t = diff_filt.getFunctionValue(xsc)
 
 
@@ -1059,7 +1059,7 @@ class dei:
 			tmp = []
 			tmp2 = []
 			data = zone[z]
-			filt = ccg_filter.ccgFilter(data.T[0], data.T[1])
+			filt = ccg_filter.ccgFilter(data.T[0], data.T[1], shortterm=667, numharmonics=5, numpolyterms=4)
 			sm = filt.getSmoothValue(data.T[0])
 			tr = filt.getTrendValue(self.years)
 
@@ -1102,11 +1102,11 @@ class dei:
 		for crvtype in self.ccgcrv:
 			crvsurface[crvtype] = numpy.zeros( (surface.shape) )
 
-		short_cutoff = 80
+		short_cutoff = 667 #80
 		long_cutoff = 667
 		interval = 7
-		npoly = 3
-		nharm = 4
+		npoly = 4#3
+		nharm = 5 #4
 		tz = self.initparam['sync1']
 
 		dd = self.syncsteps

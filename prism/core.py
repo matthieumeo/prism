@@ -184,6 +184,16 @@ class SeasonalTrendRegression:
             self.kernel_trend(self.forecast_times[:, None] - self.knots_trend[None, :]) / self._maxima[1])
         S_trend_nullspace = DenseLinearOperator(
             np.vander(self.forecast_times - self.t0, N=self.spline_orders[1], increasing=True) / std_nullspace)
+        kernel_growth_spline = lambda t: (self.spline_orders[1] - 1) * (t ** (self.spline_orders[1] - 2)) * (t >= 0)
+        S_growth_spline = DenseLinearOperator(
+            kernel_growth_spline(self.forecast_times[:, None] - self.knots_trend[None, :]) / self._maxima[1])
+        S_growth_nullspace = DenseLinearOperator(np.concatenate([
+            np.zeros(self.forecast_times.size)[:, None],
+            np.arange(self.spline_orders[1])[None, 1:] * np.vander(self.forecast_times - self.t0,
+                                                                   N=self.spline_orders[1] - 1,
+                                                                   increasing=True) / (
+                    self._maxima[-1] ** np.arange(self.spline_orders[1])[None, 1:])], axis=1))
+        S_growth = LinOpHStack(S_growth_spline, S_growth_nullspace)
         S_sum = LinOpHStack(S_seasonal2, S_trend_spline, S_trend_nullspace)
         if self.test_times is not None:
             K_seasonal_test = DenseLinearOperator(
@@ -198,14 +208,14 @@ class SeasonalTrendRegression:
             return {'seasonal': K_seasonal, 'trend_spline': K_trend_spline, 'trend_nullspace': K_trend_nullspace,
                     'sum': K_sum}, \
                    {'seasonal': S_seasonal, 'seasonal_range': S_seasonal2, 'trend_spline': S_trend_spline,
-                    'trend_nullspace': S_trend_nullspace, 'sum': S_sum}, \
+                    'trend_nullspace': S_trend_nullspace, 'sum': S_sum, 'growth': S_growth}, \
                    {'seasonal': K_seasonal_test, 'trend_spline': K_trend_spline_test,
                     'trend_nullspace': K_trend_nullspace_test, 'sum': K_sum_test}
         else:
             return {'seasonal': K_seasonal, 'trend_spline': K_trend_spline, 'trend_nullspace': K_trend_nullspace,
                     'sum': K_sum}, \
                    {'seasonal': S_seasonal, 'seasonal_range': S_seasonal2, 'trend_spline': S_trend_spline,
-                    'trend_nullspace': S_trend_nullspace, 'sum': S_sum}, \
+                    'trend_nullspace': S_trend_nullspace, 'sum': S_sum, 'growth': S_growth}, \
                    {'seasonal': None, 'trend_spline': None, 'trend_nullspace': None}
 
     def _functionals(self) -> Tuple[
@@ -376,15 +386,20 @@ class SeasonalTrendRegression:
         message = f'Minor cycle completed in {PDS.iter} iterations. Relative improvement: {tol_primal} (primal), {tol_dual} (dual).'
         return out['primal_variable'], out['dual_variable'], message
 
-    def predict(self) -> Tuple[np.ndarray, np.ndarray, np.ndarray]:
+    def predict(self, growth: bool = False) -> Tuple[np.ndarray, ...]:
         r"""
         Predict the values of the signal and its seasonal/trend components at times specified by the attributes ``self.forecast_times`` and
         ``self.seasonal_forecast_times``.
 
+        Parameters
+        ----------
+        growth: bool
+            If ``True`` the growth rate (derivative of the trend component) is computed too.
+
         Returns
         -------
-        tuple(numpy.ndarray, numpy.ndarray, numpy.ndarray)
-            Predicted values for the seasonal, trend and sum of the two respectively.
+        tuple(numpy.ndarray, ...)
+            Predicted values for the seasonal, trend and sum of the two respectively. Optionally, growth rate is also returned as a fourth argument.
 
         Notes
         -----
@@ -395,7 +410,11 @@ class SeasonalTrendRegression:
         trend_component = self.synthesis_ops['trend_spline'] * self.coeffs_trend_spline + self.synthesis_ops[
             'trend_nullspace'] * self.coeffs_trend_nullspace
         seasonal_plus_trend = self.synthesis_ops['sum'] * self.coeffs
-        return seasonal_component, trend_component, seasonal_plus_trend
+        growth_rate = self.synthesis_ops['growth'] * self.coeffs[self.knots_seasonal.size:]
+        if growth:
+            return seasonal_component, trend_component, seasonal_plus_trend, growth_rate
+        else:
+            return seasonal_component, trend_component, seasonal_plus_trend
 
     def sample_credible_region(self, n_samples: float = 1e5, credible_lvl: float = 0.01, return_samples: bool = False,
                                seed: int = 1, subsample_by: int = 100) -> Tuple[dict, dict, Optional[dict]]:
@@ -454,18 +473,21 @@ class SeasonalTrendRegression:
             seasonal_sample = self.synthesis_ops['seasonal'] * alpha[:self.knots_seasonal.size]
             trend_sample = self.synthesis_ops['trend_spline'] * alpha[self.knots_seasonal.size:-self.nullspace_dim] + \
                            self.synthesis_ops['trend_nullspace'] * alpha[-self.nullspace_dim:]
-            sum_sample = self.synthesis_ops['seasonal_range'] * self.coeffs_seasonal + trend_sample
+            sum_sample = self.synthesis_ops['seasonal_range'] * alpha[:self.knots_seasonal.size] + trend_sample
+            growth_sample = self.synthesis_ops['growth'] * alpha[self.knots_seasonal.size:]
             if n == 0:
                 alpha_min = alpha_max = alpha.copy()
                 seasonal_min = seasonal_max = seasonal_sample.copy()
                 trend_min = trend_max = trend_sample.copy()
                 sum_min = sum_max = sum_sample.copy()
+                growth_min = growth_max = growth_sample.copy()
             else:
                 alpha_min, alpha_max = np.fmin(alpha_min, alpha), np.fmax(alpha_max, alpha)
                 seasonal_min, seasonal_max = np.fmin(seasonal_min, seasonal_sample), np.fmax(seasonal_max,
                                                                                              seasonal_sample)
                 trend_min, trend_max = np.fmin(trend_min, trend_sample), np.fmax(trend_max, trend_sample)
                 sum_min, sum_max = np.fmin(sum_min, sum_sample), np.fmax(sum_max, sum_sample)
+                growth_min, growth_max = np.fmin(growth_min, growth_sample), np.fmax(growth_max, growth_sample)
             if return_samples and n % subsample_by == 0:
                 samples_coeffs.append(alpha)
                 samples_seasonal.append(seasonal_sample)
@@ -478,8 +500,8 @@ class SeasonalTrendRegression:
             samples_trend = np.stack(samples_trend, axis=-1)
             samples_sum = np.stack(samples_sum, axis=-1)
             samples = dict(coeffs=samples_coeffs, seasonal=samples_seasonal, trend=samples_trend, sum=samples_sum)
-        min_values = dict(coeffs=alpha_min, seasonal=seasonal_min, trend=trend_min, sum=sum_min)
-        max_values = dict(coeffs=alpha_max, seasonal=seasonal_max, trend=trend_max, sum=sum_max)
+        min_values = dict(coeffs=alpha_min, seasonal=seasonal_min, trend=trend_min, sum=sum_min, growth=growth_min)
+        max_values = dict(coeffs=alpha_max, seasonal=seasonal_max, trend=trend_max, sum=sum_max, growth=growth_max)
         if return_samples:
             return min_values, max_values, samples
         else:

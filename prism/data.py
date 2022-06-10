@@ -275,7 +275,7 @@ def greenhouse_gases_measurements(site: typ.Literal['mlo', 'brw', 'azr'] = 'mlo'
         else:
             url = f"https://gml.noaa.gov/aftp/data/trace_gases/{gas}/{measurement_type}/surface/{site}/{file_name}"
             if cache:
-                urllib.request.urlretrieve(url, f"data/{file_name}")
+                urllib.request.urlretrieve(url, f"data/cache/{file_name}")
         data = pd.read_csv(
             url,
             sep=" ",
@@ -297,7 +297,7 @@ def greenhouse_gases_measurements(site: typ.Literal['mlo', 'brw', 'azr'] = 'mlo'
         else:
             url = f"https://gml.noaa.gov/aftp/data/trace_gases/{gas}/{measurement_type}/surface/{file_name}"
             if cache:
-                urllib.request.urlretrieve(url, f"data/{file_name}")
+                urllib.request.urlretrieve(url, f"data/cache/{file_name}")
         data = pd.read_csv(
             url,
             index_col=None,

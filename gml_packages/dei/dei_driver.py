@@ -91,7 +91,8 @@ if options.numbs > 0:
 		anchor=options.anchor,
 		quickfilter=options.quickfilter,
 		stopdate=options.stopdate,
-		use_adate=options.useadate)
+		use_adate=options.useadate,
+		siteinfo=options.siteinfo)
 
 	# set location of input data. We'll make text files to use for all the bootstrap runs
 	if options.inputdir:

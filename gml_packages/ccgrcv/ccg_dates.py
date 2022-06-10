@@ -93,7 +93,7 @@ def getDate(intdate):
 
 ###################################################
 # Don't use these routines for resolution less than 1 second.
-def calendarDate (decyear):
+def calendarDate(decyear):
 
 	dyr =  int(decyear)
 	fyr = decyear - dyr

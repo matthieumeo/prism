@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from prism import SeasonalTrendRegression
 from prism import greenhouse_gases_measurements, split_data, ch4_splits
-import ccgrcv.ccg_filter as ccgfilt
+import gml_packages.ccgrcv.ccg_filter as ccgfilt
 from prism._util import postprocess_ccgfilt
 
 plt.rcParams['figure.figsize'] = [12, 8]
@@ -13,7 +13,7 @@ plt.style.use('seaborn')
 data, readme, url = greenhouse_gases_measurements(site='azr', gas='ch4', measurement_type='flask', dropna=True)
 
 # Split the data for training and testing purposes
-splits = {'backcasting_cut': 1988, 'forecasting_cut': 2015}
+splits = {'backcasting_cut': 1988, 'forecasting_cut': 2019}
 data_train, data_test = split_data(data[['value', 'time_decimal']], **splits)
 period = 1
 forecast_times = np.linspace(data.time_decimal.min(), data.time_decimal.max(), 4096)

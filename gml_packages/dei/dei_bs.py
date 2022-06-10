@@ -39,9 +39,9 @@ Creation:
 	    cutoff2 - long term cutoff value for filter
 	    interval - sampling inverval in days for the data.
 
-        surface_unc(numbs)
-            Combine multiple surface.mbl.gas files and calculate the standard deviation for each
-            time step/lat bin across all surface files for 'numbs' bootstrap runs.
+    surface_unc(numbs)
+        Combine multiple surface.mbl.gas files and calculate the standard deviation for each
+        time step/lat bin across all surface files for 'numbs' bootstrap runs.
 	    This is called by the run() method.
 
 
@@ -138,9 +138,9 @@ class dei_bs:
 			self.outputdir = self.resultsdir
 
 		# set default filter parameters. Can be chanegd with self.set_filter_param()
-		self.npoly = 3
-		self.nharm = 4
-		self.cutoff1 = 80
+		self.npoly = 4#3
+		self.nharm = 5
+		self.cutoff1 = 667 #80
 		self.cutoff2 = 667
 		self.interval = 7
 		self.tz = self.initparam['sync1']
