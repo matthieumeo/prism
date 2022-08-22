@@ -239,112 +239,121 @@ if __name__ == '__main__':
     fig = plt.figure()
     gs = fig.add_gridspec(5, 1)
     gs.update(hspace=0.05)
-    plt.subplot(gs[:4])
+    plt.subplot(gs[:5])
     sc_train = plt.errorbar(data_train.index[~outliers_train], data_train.value.loc[~outliers_train],
                             yerr=quantile_gauss * data_train.uncertainty.loc[~outliers_train], elinewidth=1,
-                            ecolor=colors['cyan'], alpha=0.7, zorder=0.5, linewidth=0, marker='o',
-                            markerfacecolor=colors['gray'],
+                            ecolor=colors['cyan'], alpha=0.7, zorder=4, linewidth=0, marker='o',
+                            markerfacecolor=colors['blue'],
                             mew=0, markersize=4)
     sc_test = plt.errorbar(data_test.index[~outliers_test], data_test.value.loc[~outliers_test],
                            yerr=quantile_gauss * data_test.uncertainty.loc[~outliers_test], elinewidth=1,
-                           ecolor=colors['pink'], alpha=0.7, zorder=0.5, linewidth=0, marker='s',
+                           ecolor=colors['pink'], alpha=0.7, zorder=4, linewidth=0, marker='s',
                            markerfacecolor=colors['purple'],
-                           mew=0, markersize=3.5)
+                           mew=0, markersize=4)
     sc_out = plt.errorbar(data_train.index[outliers_train], data_train.value.loc[outliers_train],
                           yerr=quantile_gauss * data_train.uncertainty.loc[outliers_train], elinewidth=1,
-                          ecolor=colors['brown'], alpha=0.4, zorder=0.5, linewidth=0, marker='x',
-                          markeredgecolor=colors['red'], mew=1, markersize=4)
+                          ecolor=colors['brown'], alpha=0.7, zorder=4, linewidth=0, marker='x',
+                          markeredgecolor=colors['red'], mew=1, markersize=6)
     plt.errorbar(data_test.index[outliers_test], data_test.value.loc[outliers_test],
                  yerr=quantile_gauss * data_test.uncertainty.loc[outliers_test], elinewidth=1,
-                 ecolor=colors['brown'], alpha=0.4, zorder=0.5, linewidth=0, marker='x',
-                 markeredgecolor=colors['red'], mew=1, markersize=4)
-    lin_sum, = plt.plot(mbl_reference['sum'].index, mbl_reference['sum'].value, '-', linewidth=1.5,
-                        color=colors['blue'], zorder=2)
-    fill_sum = plt.fill_between(mbl_reference['sum'].index,
-                                mbl_reference['sum'].value - quantile_gauss * mbl_reference['sum'].unc,
-                                mbl_reference['sum'].value + quantile_gauss * mbl_reference['sum'].unc,
-                                alpha=0.4, color=colors['blue'], zorder=1, linewidth=0)
-    lin_trend, = plt.plot(mbl_reference['trend'].index, mbl_reference['trend'].value, '-', linewidth=2,
-                          color=colors['orange'],
+                 ecolor=colors['brown'], alpha=0.7, zorder=4, linewidth=0, marker='x',
+                 markeredgecolor=colors['red'], mew=1, markersize=6)
+    lin_sum, = plt.plot(mbl_reference['sum'].index, mbl_reference['sum'].value, '-', linewidth=3,
+                        color=colors['blue'], zorder=2, alpha=0.6)
+    # fill_sum = plt.fill_between(mbl_reference['sum'].index,
+    #                             mbl_reference['sum'].value - quantile_gauss * mbl_reference['sum'].unc,
+    #                             mbl_reference['sum'].value + quantile_gauss * mbl_reference['sum'].unc,
+    #                             alpha=0.4, color=colors['blue'], zorder=1, linewidth=0)
+    lin_trend, = plt.plot(mbl_reference['trend'].index, mbl_reference['trend'].value, '-', linewidth=3,
+                          color=colors['orange'],alpha=0.6,
                           zorder=2)
-    fill_trend = plt.fill_between(mbl_reference['trend'].index,
-                                  mbl_reference['trend'].value - quantile_gauss * mbl_reference['trend'].unc,
-                                  mbl_reference['trend'].value + quantile_gauss * mbl_reference['trend'].unc,
-                                  alpha=0.6, color=colors['orange'], zorder=1, linewidth=0)
+    # fill_trend = plt.fill_between(mbl_reference['trend'].index,
+    #                               mbl_reference['trend'].value - quantile_gauss * mbl_reference['trend'].unc,
+    #                               mbl_reference['trend'].value + quantile_gauss * mbl_reference['trend'].unc,
+    #                               alpha=0.6, color=colors['orange'], zorder=1, linewidth=0)
     # For the legend only, do not appear on figure.
-    lin_seas, = plt.plot(2 * mbl_reference['trend'].index, mbl_reference['trend'].value, '-', linewidth=2,
+    lin_seas, = plt.plot(2 * mbl_reference['trend'].index, mbl_reference['trend'].value, '-', linewidth=3,
                          color=colors['green'], zorder=2)
-    fill_seas = plt.fill_between(mbl_reference['trend'].index,
-                                 2 * mbl_reference['trend'].value - quantile_gauss * mbl_reference['trend'].unc,
-                                 2 * mbl_reference['trend'].value + quantile_gauss * mbl_reference['trend'].unc,
-                                 alpha=0.4, color=colors['green'], zorder=1, linewidth=0)
-    lin_growth, = plt.plot(2 * mbl_reference['trend'].index, mbl_reference['trend'].value, '-', linewidth=2,
-                           color=colors['brown'], zorder=2)
-    fill_growth = plt.fill_between(mbl_reference['trend'].index,
-                                   2 * mbl_reference['trend'].value - quantile_gauss * mbl_reference['trend'].unc,
-                                   2 * mbl_reference['trend'].value + quantile_gauss * mbl_reference['trend'].unc,
-                                   alpha=0.4, color=colors['brown'], zorder=1, linewidth=0)
+    # fill_seas = plt.fill_between(mbl_reference['trend'].index,
+    #                              2 * mbl_reference['trend'].value - quantile_gauss * mbl_reference['trend'].unc,
+    #                              2 * mbl_reference['trend'].value + quantile_gauss * mbl_reference['trend'].unc,
+    #                              alpha=0.4, color=colors['green'], zorder=1, linewidth=0)
+    # lin_growth, = plt.plot(2 * mbl_reference['trend'].index, mbl_reference['trend'].value, '-', linewidth=3,
+    #                        color=colors['brown'], zorder=2)
+    # fill_growth = plt.fill_between(mbl_reference['trend'].index,
+    #                                2 * mbl_reference['trend'].value - quantile_gauss * mbl_reference['trend'].unc,
+    #                                2 * mbl_reference['trend'].value + quantile_gauss * mbl_reference['trend'].unc,
+    #                                alpha=0.4, color=colors['brown'], zorder=1, linewidth=0)
     plt.ylabel(f'{gas[:2].upper()}$_{gas[-1]}$ (ppb)', fontsize='x-large')
     plt.ylim(1570, 1970)
     plt.xlim(data.index.min(), data.index.max())
-    plt.tick_params('x', labeltop=True, labelbottom=False, which='both')
-    plt.figlegend([sc_train, sc_test, sc_out, (lin_sum, fill_sum), (lin_trend, fill_trend), (lin_seas, fill_seas),
-                   (lin_growth, fill_growth)],
-                  ['Training samples', 'Test samples', 'Outliers', 'Sum', 'Trend', 'Seasonal', 'Growth rate (trend)'],
-                  fontsize='large', loc=9, ncol=3, markerscale=2,
-                  fancybox=False)
+    plt.xlabel('Time (years)', fontsize='xx-large')
+    #plt.axis('off')
+    #plt.tick_params('x', labeltop=True, labelbottom=False, which='both')
+    # plt.figlegend([sc_train, sc_test, sc_out, (lin_sum, fill_sum), (lin_trend, fill_trend), (lin_seas, fill_seas),
+    #                (lin_growth, fill_growth)],
+    #               ['Training samples', 'Test samples', 'Outliers', 'Sum', 'Trend', 'Seasonal', 'Growth rate (trend)'],
+    #               fontsize='large', loc=9, ncol=3, markerscale=2,
+    #               fancybox=False)
+    # plt.figlegend([sc_train, sc_test, sc_out, lin_sum, lin_trend, lin_seas,], # lin_growth],
+    #               ['Training samples', 'Test samples', 'Outliers', 'Sum', 'Trend', 'Seasonal',], #'Growth rate (trend)'],
+    #               fontsize='xx-large', loc=9, ncol=3, markerscale=2,
+    #               fancybox=False)
     ax = plt.gca()
     ax.xaxis.set_ticks_position('both')
     # Nested axis for seasonal component
     with plt.style.context('seaborn-whitegrid'):
         inax = ax.inset_axes([0.45, 0.05, 0.52, 0.42])
-        inax.plot(seasonal_forecast_times, mbl_reference_interp['seasonal'](seasonal_forecast_times), '-', linewidth=2,
+        inax.plot(seasonal_forecast_times, mbl_reference_interp['seasonal'](seasonal_forecast_times), '-', linewidth=3,
                   color=colors['green'], zorder=2)
-        inax.fill_between(seasonal_forecast_times,
-                          mbl_reference_interp['seasonal'](seasonal_forecast_times) - quantile_gauss * mbl_unc_interp[
-                              'seasonal'](seasonal_forecast_times),
-                          mbl_reference_interp['seasonal'](seasonal_forecast_times) + quantile_gauss * mbl_unc_interp[
-                              'seasonal'](seasonal_forecast_times),
-                          alpha=0.4, color=colors['green'], zorder=1, linewidth=0)
-        inax.plot(seasonal_forecast_times, 0 * seasonal_forecast_times, '-', linewidth=1.5,
-                  color=colors['gray'], zorder=1)
+        # inax.fill_between(seasonal_forecast_times,
+        #                   mbl_reference_interp['seasonal'](seasonal_forecast_times) - quantile_gauss * mbl_unc_interp[
+        #                       'seasonal'](seasonal_forecast_times),
+        #                   mbl_reference_interp['seasonal'](seasonal_forecast_times) + quantile_gauss * mbl_unc_interp[
+        #                       'seasonal'](seasonal_forecast_times),
+        #                   alpha=0.4, color=colors['green'], zorder=1, linewidth=0)
+        inax.plot(seasonal_forecast_times, 0 * seasonal_forecast_times, '-', linewidth=3,
+                  color=colors['gray'], zorder=1, alpha=0.6)
         inax.scatter(data_train.index[~outliers_train] % 1,
                      data_train.value.loc[~outliers_train] - mbl_reference_interp['trend'](
                          data_train.index[~outliers_train]),
-                     s=6, marker='o', c=colors['blue'], zorder=1, edgecolor='none',
-                     alpha=0.4)
+                     s=16, marker='o', c=colors['blue'], zorder=4, edgecolor='none',
+                     alpha=0.7)
         inax.scatter(data_train.index[outliers_train] % 1,
                      data_train.value.loc[outliers_train] - mbl_reference_interp['trend'](
                          data_train.index[outliers_train]),
-                     s=12, marker='x', c=colors['red'], zorder=1, alpha=0.4, linewidths=1)
+                     s=16, marker='x', c=colors['red'], zorder=4, alpha=0.7, linewidths=1)
         inax.scatter(data_test.index[~outliers_test] % 1,
                      data_test.value.loc[~outliers_test] - mbl_reference_interp['trend'](
                          data_test.index[~outliers_test]),
-                     s=6, marker='s', c=colors['purple'], zorder=1, edgecolor='none',
-                     alpha=0.4)
+                     s=16, marker='s', c=colors['purple'], zorder=4, edgecolor='none',
+                     alpha=0.7)
         inax.scatter(data_test.index[outliers_test] % 1,
                      data_test.value.loc[outliers_test] - mbl_reference_interp['trend'](data_test.index[outliers_test]),
-                     s=12, marker='x', c=colors['red'], zorder=1, alpha=0.4, linewidths=1)
-        inax.set_title('Yearly Seasonal Cycle', y=1, pad=-14)
+                     s=16, marker='x', c=colors['red'], zorder=4, alpha=0.7, linewidths=1)
+        inax.set_title('Yearly Seasonal Cycle', y=1, pad=-14, fontsize='xx-large')
         inax.set_xlim(0, 1)
         inax.set_ylim(-60, 60)
         inax.set_xticks(np.linspace(0, 1, 13),
                         ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec', 'Jan'])
+        inax.tick_params(axis='both', which='major', labelsize='x-large')
     # Grwoth rate in broken axis
-    ax2 = plt.subplot(gs[4], sharex=ax)
-    ax2.xaxis.set_ticks_position('both')
-    plt.tick_params('x', labeltop=False, labelbottom=True, which='both')
-    plt.plot(mbl_reference['growth'].index, mbl_reference['growth'].value, '-', linewidth=2,
-             color=colors['brown'], zorder=2)
-    plt.plot(mbl_reference['growth'].index, 0 * mbl_reference['growth'].index, '-', linewidth=1.5,
-             color=colors['gray'],
-             zorder=1)
-    plt.fill_between(mbl_reference['growth'].index,
-                     mbl_reference['growth'].value - quantile_gauss * mbl_reference['growth'].unc,
-                     mbl_reference['growth'].value + quantile_gauss * mbl_reference['growth'].unc,
-                     alpha=0.4, color=colors['brown'], zorder=1, linewidth=0)
-    ax2.set_ylim(-20, 80)
-    plt.xlabel('Time (years)', fontsize='x-large')
+    # ax2 = plt.subplot(gs[4], sharex=ax)
+    # ax2.xaxis.set_ticks_position('both')
+    # plt.tick_params('x', labeltop=False, labelbottom=True, which='both')
+    # plt.plot(mbl_reference['growth'].index, mbl_reference['growth'].value, '-', linewidth=3,
+    #          color=colors['brown'], zorder=2)
+    # plt.plot(mbl_reference['growth'].index, 0 * mbl_reference['growth'].index, '-', linewidth=1.5,
+    #          color=colors['gray'],
+    #          zorder=1)
+    # plt.fill_between(mbl_reference['growth'].index,
+    #                  mbl_reference['growth'].value - quantile_gauss * mbl_reference['growth'].unc,
+    #                  mbl_reference['growth'].value + quantile_gauss * mbl_reference['growth'].unc,
+    #                  alpha=0.4, color=colors['brown'], zorder=1, linewidth=0)
+    #ax2.set_ylim(-20, 80)
+    #plt.xlabel('Time (years)', fontsize='xx-large')
+    #plt.axis('off')
+    ax.tick_params(axis='both', which='major', labelsize='x-large')
     plt.show()
 
     # Semi-monthly, interpolated data
@@ -551,7 +560,7 @@ if __name__ == '__main__':
 
     # ccgfilt
     filt = ccgfilt.ccgFilter(xp=data_train.time_decimal.values, yp=data_train.value.values,
-                             timezero=-1, numpolyterms=7, numharmonics=5)
+                             timezero=-1, numpolyterms=7, numharmonics=7)
     ftimes, fcomponents, fresiduals, fmin_values, fmax_values = priu.postprocess_ccgfilt(filt, seasonal_forecast_times,
                                                                                          forecast_times)
 
