@@ -25,7 +25,7 @@ def pkg_info() -> Mapping:
     Load information contained in `PKG-INFO`.
     """
     sphinx_src_dir = pathlib.Path(__file__).parent
-    info_path = sphinx_src_dir / ".." / "prism.egg-info" / "PKG-INFO"
+    info_path = sphinx_src_dir / ".." / "src" / "prism.egg-info" / "PKG-INFO"
     info_path = info_path.resolve(strict=True)
 
     # Pattern definitions
@@ -128,7 +128,6 @@ intersphinx_mapping = {
     "dask [latest]": ("https://docs.dask.org/en/latest/", None),
     "pandas": ("http://pandas.pydata.org/pandas-docs/stable/", None),
     "matplotlib": ("https://matplotlib.org/", None),
-    "pycsou": ("https://matthieumeo.github.io/pycsou/html/", None)
 }
 
 # -- Options for napoleon extension ------------------------------------------

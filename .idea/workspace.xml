@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="44fff1f2-c242-4407-819e-ce014cc09de5" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/bspline.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/prism/bspline.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/prism.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/prism.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChangeLog" beforeDir="false" afterPath="$PROJECT_DIR$/ChangeLog" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/azr_ch4_poly.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/azr_ch4_prism.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ch4_azr_mblref.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ch4_azr_samples.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/conf.py" beforeDir="false" afterPath="$PROJECT_DIR$/doc/conf.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/ch4_azr.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/ch4_ccgfilt.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/ch4_mlo.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/ch4_mlo_prism_vs_ccgfilt.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/co2_mlo.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/data/cache/ch4_mlo_surface-insitu_1_ccgg_MonthlyData.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/elec_equip.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/illustration.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/temperatures_jena.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/validation.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples_doc/ch4_mlo.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples_doc/co2_mlo.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples_doc/elec_equip.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples_doc/index.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gml_packages/ccgrcv/README.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gml_packages/ccgrcv/ccg_dates.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gml_packages/ccgrcv/ccg_filter.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gml_packages/ccgrcv/ccgcrv.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gml_packages/ccgrcv/ccgcrv.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gml_packages/ccgrcv/ccgfilt.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gml_packages/dei/DataExtensionandIntegration.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gml_packages/dei/README" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gml_packages/dei/bs_network.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gml_packages/dei/ccg_data.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gml_packages/dei/ccg_dates.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gml_packages/dei/ccg_db.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gml_packages/dei/ccg_filter.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gml_packages/dei/ccg_pptfit.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gml_packages/dei/ccg_quickfilter.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gml_packages/dei/ccg_readinit.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gml_packages/dei/ccg_siteinfo.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gml_packages/dei/ccg_utils.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gml_packages/dei/data/abp_dat.co2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gml_packages/dei/data/alt_dat.co2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gml_packages/dei/data/ams_dat.co2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gml_packages/dei/data/asc_dat.co2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gml_packages/dei/data/avi_dat.co2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gml_packages/dei/data/azr_dat.co2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gml_packages/dei/data/bme_dat.co2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gml_packages/dei/data/bmw_dat.co2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gml_packages/dei/data/brw_dat.co2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gml_packages/dei/data/cba_dat.co2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gml_packages/dei/data/cgo_dat.co2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gml_packages/dei/data/chr_dat.co2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gml_packages/dei/data/crz_dat.co2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gml_packages/dei/data/gmi_dat.co2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gml_packages/dei/data/hba_dat.co2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gml_packages/dei/data/ice_dat.co2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gml_packages/dei/data/key_dat.co2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gml_packages/dei/data/kum_dat.co2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gml_packages/dei/data/mbc_dat.co2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gml_packages/dei/data/mhd_dat.co2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gml_packages/dei/data/mid_dat.co2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gml_packages/dei/data/poc000_dat.co2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gml_packages/dei/data/pocn05_dat.co2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gml_packages/dei/data/pocn10_dat.co2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gml_packages/dei/data/pocn15_dat.co2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gml_packages/dei/data/pocn20_dat.co2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gml_packages/dei/data/pocn25_dat.co2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gml_packages/dei/data/pocn30_dat.co2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gml_packages/dei/data/pocs05_dat.co2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gml_packages/dei/data/pocs10_dat.co2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gml_packages/dei/data/pocs15_dat.co2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gml_packages/dei/data/pocs20_dat.co2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gml_packages/dei/data/pocs25_dat.co2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gml_packages/dei/data/pocs30_dat.co2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gml_packages/dei/data/pocs35_dat.co2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gml_packages/dei/data/psa_dat.co2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gml_packages/dei/data/rpb_dat.co2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gml_packages/dei/data/shm_dat.co2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gml_packages/dei/data/smo_dat.co2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gml_packages/dei/data/spo_dat.co2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gml_packages/dei/data/stm_dat.co2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gml_packages/dei/data/syo_dat.co2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gml_packages/dei/data/zep_dat.co2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gml_packages/dei/dei.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gml_packages/dei/dei.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gml_packages/dei/dei_bs.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gml_packages/dei/dei_bs_driver.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gml_packages/dei/dei_driver.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gml_packages/dei/dei_effective_unc.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gml_packages/dei/dei_unc.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gml_packages/dei/init.co2.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gml_packages/dei/siteinfo.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prism/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prism/_util.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prism/core.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prism/data.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements-conda.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/setup.cfg" beforeDir="false" afterPath="$PROJECT_DIR$/setup.cfg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2DnnqEyodImA9eNnZZ4kdoa40UZ" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "true",
+    "python.debugger.dataview.coloredbydefault": "false",
+    "settings.editor.selected.configurable": "PyScientificConfigurable"
+  }
+}]]></component>
+  <component name="PyConsoleOptionsProvider">
+    <option name="myPythonConsoleState">
+      <console-settings is-module-sdk="true">
+        <option name="myUseModuleSdk" value="true" />
+      </console-settings>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="bspline" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="prism" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/bspline.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.bspline" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="44fff1f2-c242-4407-819e-ce014cc09de5" name="Changes" comment="" />
+      <created>1661343906080</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1661343906080</updated>
+      <workItem from="1661343909754" duration="54417000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/prism$bspline.coverage" NAME="bspline Coverage Results" MODIFIED="1661346589569" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+  </component>
+</project>

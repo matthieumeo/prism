@@ -3,7 +3,6 @@
 """
 Setup script.
 """
+import setuptools
 
-from setuptools import setup
-
-setup(setup_requires=["pbr"], pbr=True)
+setuptools.setup(setup_requires=["pbr"], pbr=True)
